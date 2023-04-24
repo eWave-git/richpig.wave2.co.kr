@@ -90,10 +90,10 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">-</span>
-                        <span class="info-box-number"><?php echo $row2['data3'];?> -</span>
+                        <span class="info-box-number"><?php echo $row2['data2'];?> -</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row2['data3'];?>"></div>
+                            <div class="progress-bar" style="width: <?php echo $row2['data2'];?>"></div>
                         </div>
                         <span class="progress-description">
                             조회 시점 : <?php echo substr($row2['create_at'],5,11);?>
