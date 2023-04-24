@@ -51,13 +51,13 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">보관고 외부 온도 - mq</span>
-                        <span class="info-box-number"><?php echo $row2['data1'];?> °C</span>
+                        <span class="info-box-number"><?php echo $row2['data3'];?> °C</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row1['data1'];?>%"></div>
+                            <div class="progress-bar" style="width: <?php echo $row2['data3'];?>%"></div>
                         </div>
                         <span class="progress-description">
-                            조회 시점 : <?php echo substr($row1['create_at'],5,11);?>
+                            조회 시점 : <?php echo substr($row2['create_at'],5,11);?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -90,7 +90,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">-</span>
-                        <span class="info-box-number"><?php echo $row3['data2'];?> -</span>
+                        <span class="info-box-number"><?php echo $row2['data2'];?> -</span>
 
                         <div class="progress">
                             <div class="progress-bar" style="width: <?php echo $row3['data2'];?>"></div>
