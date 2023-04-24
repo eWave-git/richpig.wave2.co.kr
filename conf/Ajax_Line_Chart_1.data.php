@@ -5,9 +5,9 @@ $query = "
     select
         DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
         data1
-    from water.raw_data
+    from richpig.raw_data
     where
-        address = 101 and board_number = 2 and
+        address = 401 and
         create_at >= now() - INTERVAL 4 hour
     order by DATE asc;
     ";

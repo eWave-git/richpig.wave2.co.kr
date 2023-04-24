@@ -1,19 +1,19 @@
 <?php
-    $sql1 = "select * from well.raw_data where address = 227 and board_number=2 order by create_at desc limit 1";
+    $sql1 = "select * from richpig.raw_data where address = 401 order by create_at desc limit 1";
     $result1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_array($result1);
 
-    $sql2 = "select * from well.raw_data where address = 227 and board_number=5 order by create_at desc limit 1";
+    $sql2 = "select * from richpig.mqtt_raw_data where address = 6 order by create_at desc limit 1";
     $result2 = mysqli_query($conn, $sql2);
     $row2 = mysqli_fetch_array($result2);
 
-    $sql3 = "select * from well.raw_data where address = 227 and board_number=3 order by create_at desc limit 1";
-    $result3 = mysqli_query($conn, $sql3);
-    $row3 = mysqli_fetch_array($result3);
+//    $sql3 = "select * from well.raw_data where address = 227 and board_number=3 order by create_at desc limit 1";
+//    $result3 = mysqli_query($conn, $sql3);
+//    $row3 = mysqli_fetch_array($result3);
 
-    $sql4 = "select * from well.raw_data where address = 227 and board_number=6 order by create_at desc limit 1";
-    $result4 = mysqli_query($conn, $sql4);
-    $row4 = mysqli_fetch_array($result4);
+//    $sql4 = "select * from well.raw_data where address = 227 and board_number=6 order by create_at desc limit 1";
+//    $result4 = mysqli_query($conn, $sql4);
+//    $row4 = mysqli_fetch_array($result4);
 
 //    echo $row['data1'];
 //    echo $row['tds_out'];
@@ -24,14 +24,14 @@
 <section class="content">
     <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        재배실 1 
+        정액보관고, 온습도 
         <div class="row">
             <div class="col-lg-3 col-12">
                 <div class="info-box bg-info">
 <!--                    <span class="info-box-icon"><i class="far fa-bookmark"></i></span>-->
 
                     <div class="info-box-content">
-                        <span class="info-box-text">온도</span>
+                        <span class="info-box-text">보관고 내부 온도 - 32</span>
                         <span class="info-box-number"><?php echo $row1['data1'];?> °C</span>
 
                         <div class="progress">
@@ -50,11 +50,11 @@
 <!--                    <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>-->
 
                     <div class="info-box-content">
-                        <span class="info-box-text">습도</span>
-                        <span class="info-box-number"><?php echo $row1['data2'];?> %</span>
+                        <span class="info-box-text">보관고 외부 온도 - mq</span>
+                        <span class="info-box-number"><?php echo $row2['data1'];?> °C</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row1['data2'];?>%"></div>
+                            <div class="progress-bar" style="width: <?php echo $row1['data1'];?>%"></div>
                         </div>
                         <span class="progress-description">
                             조회 시점 : <?php echo substr($row1['create_at'],5,11);?>
@@ -70,11 +70,11 @@
 <!--                    <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>-->
 
                     <div class="info-box-content">
-                        <span class="info-box-text">이산화탄소</span>
-                        <span class="info-box-number"><?php echo $row1['data3'];?> ppm </span>
+                        <span class="info-box-text">보관고 외부 습도 - mq</span>
+                        <span class="info-box-number"><?php echo $row2['data2'];?> % </span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row1['data3'];?> %"></div>
+                            <div class="progress-bar" style="width: <?php echo $row1['data2'];?> %"></div>
                         </div>
                         <span class="progress-description">
                             조회 시점 : <?php echo substr($row1['create_at'],5,11);?>
@@ -89,14 +89,14 @@
 <!--                    <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>-->
 
                     <div class="info-box-content">
-                        <span class="info-box-text">ph</span>
-                        <span class="info-box-number"><?php echo $row2['data2'];?> µmol/m^2/s</span>
+                        <span class="info-box-text">-</span>
+                        <span class="info-box-number"><?php echo $row3['data2'];?> -</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row2['data2'];?>"></div>
+                            <div class="progress-bar" style="width: <?php echo $row3['data2'];?>"></div>
                         </div>
                         <span class="progress-description">
-                            조회 시점 : <?php echo substr($row2['create_at'],5,11);?>
+                            조회 시점 : <?php echo substr($row3['create_at'],5,11);?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -109,107 +109,7 @@
         <!-- /.row -->
         <!-- Main row -->
 
-
-        <div class="row">
-            <div class="col-lg-3 col-12">
-                <div class="info-box bg-info">
-<!--                    <span class="info-box-icon"><i class="far fa-bookmark"></i></span>-->
-                    <div class="info-box-content">
-                        <span class="info-box-text">EC</span>
-                        <span class="info-box-number"><?php echo $row2['data3'];?> °C</span>
-
-                        <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row2['data3'];?>%"></div>
-                        </div>
-                        <span class="progress-description">
-                            조회 시점 : <?php echo substr($row2['create_at'],5,11);?> <!-- ($row2['create_at'],11,8) -->
-                        </span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-12">
-                <div class="info-box bg-success">
-<!--                    <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>-->
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">PAR</span>
-                        <span class="info-box-number"><?php echo $row2['data4'];?> µmol/m^2/s</span>
-
-                        <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row2['data4'];?>%"></div>
-                        </div>
-                        <span class="progress-description">
-                            조회 시점 : <?php echo substr($row2['create_at'],5,11);?>
-                        </span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-12">
-                <div class="info-box bg-warning">
-<!--                    <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>-->
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">-</span>
-                        <span class="info-box-number"><?php echo $row2['data5'];?>  </span>
-
-                        <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row2['data5'];?> %"></div>
-                        </div>
-                        <span class="progress-description">
-                            조회 시점 : <?php echo substr($row2['create_at'],5,11);?>
-                        </span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-12">
-                <div class="info-box bg-danger">
-<!--                    <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>-->
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">-</span>
-                        <span class="info-box-number"><?php echo $row2['data6'];?>  </span>
-
-                        <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row2['data6'];?>"></div>
-                        </div>
-                        <span class="progress-description">
-                            조회 시점 : <?php echo substr($row2['create_at'],5,11);?>
-                        </span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-            </div>
-            <!-- ./col -->
-
-        </div>
-        <!-- /.row -->
-        <!-- Main row -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!-- Main row -->        <!-- Main row -->        <!-- Main row -->        <!-- Main row -->        <!-- Main row -->        <!-- Main row -->        <!-- Main row -->        <!-- Main row -->
-
-
-
-
 
         <div class="row">
 
@@ -221,7 +121,7 @@
                         <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
                             <li class="pt-2 px-3"><h3 class="card-title">section </h3></li>
                             <li class="nav-item">
-                                <a class="nav-link active" id="custom-tabs-two-home-tab" data-toggle="pill" href="#custom-tabs-two-home" role="tab" aria-controls="custom-tabs-two-home" aria-selected="true">재배실</a>
+                                <a class="nav-link active" id="custom-tabs-two-home-tab" data-toggle="pill" href="#custom-tabs-two-home" role="tab" aria-controls="custom-tabs-two-home" aria-selected="true">변화량</a>
                             </li>
                            
                         </ul>
@@ -238,7 +138,7 @@
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                     온도 변화량 (°C)
+                                                     보관고 내부 온도 변화량 (°C)
                                                 </h3>
 
                                                 <div class="card-tools">
@@ -262,7 +162,7 @@
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                    습도 변화량 (%)
+                                                    보관고 외부 온도 변화량 (°C)
                                                 </h3>
 
                                                 <div class="card-tools">
@@ -288,7 +188,7 @@
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                    이산화탄소 변화량 (ppm)
+                                                    보관고 외부 습도 변화량 (%)
                                                 </h3>
 
                                                 <div class="card-tools">
@@ -312,7 +212,7 @@
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                    조도 변화량 (µmol/m^2/s)
+                                                    미정 (-)
                                                 </h3>
 
                                                 <div class="card-tools">

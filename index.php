@@ -32,9 +32,9 @@ include_once "conf/autoLogin.php";
     </div>
     <!-- /.login-logo -->
     <div class="card">
-        <div class="text-center"><img src="image/ewave_logo.gif"></div>
+        <div class="text-center"><img src="image/main_logo.gif"></div>
         <div class="card-body login-card-body">
-            <p class="login-box-msg">탑리 모니터링 시스템</p>
+            <p class="login-box-msg">richpig 모니터링 시스템</p>
 
             <form action="conf/loginAction.php" method="post">
                 <div class="input-group mb-3">

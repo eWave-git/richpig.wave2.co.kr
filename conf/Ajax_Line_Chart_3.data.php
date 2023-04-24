@@ -4,10 +4,10 @@ include_once "../connect.php";
 $query = "
     select
         DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
-        data3
-    from water.raw_data
+        data2
+    from richpig.mqtt_raw_data
     where
-        address = 101 and board_number = 2 and    
+        address = 6 and    
         create_at >= now() - INTERVAL 4 hour
     order by DATE asc;
     "; 
@@ -23,7 +23,7 @@ $water_out_arr = array();
 $create_at_arr = array();
 
 foreach ($rows as $k => $v) {
-    array_push($water_in_arr, array($k, floor($v['data3'])));
+    array_push($water_in_arr, array($k, floor($v['data2'])));
 //    array_push($water_out_arr, array($k, floor($v['water_out'])));
     array_push($create_at_arr, array($k, substr($v['DATE'],6,5)));
 }

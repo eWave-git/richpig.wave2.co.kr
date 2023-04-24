@@ -11,5 +11,5 @@ setcookie('cookie_id', '', time() - 100, '/');
 
 session_destroy();
 
-error_loc_msg('/','로그인 아웃 되었습니다.');
+error_loc_msg('/','로그아웃 되었습니다.');
 ?>
