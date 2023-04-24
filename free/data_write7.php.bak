@@ -70,7 +70,7 @@ $control_sql = "select * from control_data where address = $address and board_ty
 $result = mysqli_query($conn, $control_sql);
 $row = mysqli_fetch_array($result);
 
-if (isset($row['idx'])) {
+if ($row['idx']) {
 
 	$relay1 = $row['relay1'] == '' ? 0 : $row['relay1'];
 	$relay2 = $row['relay2'] == '' ? 0 : $row['relay2'];
