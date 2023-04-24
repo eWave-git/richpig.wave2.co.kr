@@ -1,0 +1,94 @@
+<?php
+foreach ($_REQUEST as $k => $v) {
+		$$k = hexdec($v);
+}
+
+
+$date = date("Y-m-d");
+$time = date("His");
+$create_at = date("Y-m-d H:i:s");
+$from_ip = $_SERVER['REMOTE_ADDR'];
+$conn = mysqli_connect("database-1.cvdze1lptugg.ap-northeast-2.rds.amazonaws.com","wave2","crss6801!!","well") or die ("Can't access DB");
+
+$address = dechex($add);
+
+$bd_num = dechex($bd);
+$bd_type = substr($bd_num, 0, 1);
+$bd_number = substr($bd_num, 1, 1);
+
+
+if ($bd_type != 1) {
+
+	if ($address == '999') {
+		$d1 = 0;
+		$d2 = 0;
+	} else if ($address == '1000') {
+		$d1 = 0;
+		$d2 = 0;
+	}
+
+	if ($bd_type == 2) {
+		$d1 = round($d1 / 65536 * 175 - 46.85,1); //온도센서
+		$d2 = round($d2 / 65536 * 125 - 6, 1); // 습도센서
+		if ($d2>99.9){
+			$d2 = 99.9;
+		}
+		$d7 = round($d7 / 1.2, 1); // 조도센서
+	} else if ($bd_type == 3) {
+		$d1 = round($d1 / 10,1); //온도센서 AM2305
+		$d2 = round($d2 / 10,1); //습도센서 AM2305
+	} else if ($bd_type == 4) {
+		$d1 = round($d1 / 65536 * 100,1); //지습도 센서
+		//$d2 = round(($d2 - 763) / 3332 * 14 , 1);
+		
+		if ($d2 < 768){
+			$d2 = 0;
+		}
+		else {
+			$d2 = round(($d2 - 768) / 3328 * 14 , 1); // 401,501 버섯농장 PAR센서
+		}
+
+		if ($d3 < 768){
+			$d3 = 0;
+		} else {
+		$d3 = round(($d2 - 768) / 3328 * 44 , 1); // 301 버섯농장 PAR센서
+		}
+	
+	} else if ($bd_type == 5) {
+		$d1 = round($d1 / 10,1);
+		$d2 = round($d2 / 10, 1);
+	}	
+
+	$sql = "INSERT INTO well.raw_data (`create_at`,`address`,`board_type`,`board_number`,`data1`,`data2`,`data3`,`data4`,`data5`,`data6`,`data7`)
+    		VALUES ('{$create_at}', $address, $bd_type, $bd_number, $d1, $d2, $d3, $d4, $d5, $d6, $d7)";
+
+	$result = mysqli_query($conn, $sql);
+}
+
+//$control_sql = "select * from well.control_data where address = $address and board_type = $bd_type and board_number = $bd_number order by create_at desc limit 1 ";
+
+//$result = mysqli_query($conn, $control_sql);
+//$row = mysqli_fetch_array($result);
+
+//if ($row['idx']) {
+
+//	$relay1 = $row['relay1'] == '' ? 0 : $row['relay1'];
+//	$relay2 = $row['relay2'] == '' ? 0 : $row['relay2'];
+
+
+//	$str = "X000Y".$relay1.$relay2."00#";
+
+//	$textdata = "@".$time.$str;
+
+//} else {
+	$textdata = "@".$time."X000Y0000#<br>";
+//}
+
+echo $textdata;
+
+
+
+
+// http://ri.wave2.co.kr/free/data_write7.php?add=00000501&bd=43&d1=0ede9&d2=002fa&d3=00000&d4=00000&d5=00000&d6=00000&d7=00000&d8=00fff
+?>
+ 
