@@ -9,14 +9,14 @@ $date = date("Y-m-d");
 $time = date("His");
 $create_at = date("Y-m-d H:i:s");
 $from_ip = $_SERVER['REMOTE_ADDR'];
-$conn = mysqli_connect("database-1.cvdze1lptugg.ap-northeast-2.rds.amazonaws.com","wave2","crss6801!!","water") or die ("Can't access DB");
+$conn = mysqli_connect("database-1.cvdze1lptugg.ap-northeast-2.rds.amazonaws.com","wave2","crss6801!!","richpig") or die ("Can't access DB");
 
 
 $bd_type = substr($bd, 0, 1);
 $bd_number = substr($bd, 1, 1);
 
 
-$sql = "INSERT INTO water.raw_data_8 (`create_at`,`address`,`board_type`,`board_number`,`data1`,`data2`,`data3`,`data4`,`data5`,`data6`,`data7`,`data8`)
+$sql = "INSERT INTO richpig.raw_data_8 (`create_at`,`address`,`board_type`,`board_number`,`data1`,`data2`,`data3`,`data4`,`data5`,`data6`,`data7`,`data8`)
     VALUES ('{$create_at}', $add, $bd_type, $bd_number, $d1, $d2, $d3, $d4, $d5, $d6, $d7, $d8)";
 
 $result = mysqli_query($conn, $sql);
