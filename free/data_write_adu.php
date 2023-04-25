@@ -37,6 +37,9 @@ $result = mysqli_query($conn, $sql);
 
 //echo $sql;
 
+$textdata = "@".$time."X000Y0000#<br>";
+echo $textdata;
+
 
 
 
