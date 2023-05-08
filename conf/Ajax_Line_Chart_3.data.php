@@ -5,10 +5,10 @@ $query = "
     select
         DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
         data2
-    from richpig.mqtt_raw_data
+    from richpig.raw_data_mqtt
     where
-        address = 6 and    
-        create_at >= now() - INTERVAL 4 hour
+        address = 1001 and
+        create_at >= now() - INTERVAL 24 hour
     order by DATE asc;
     "; 
 //create_at >= now() - INTERVAL 30 minute

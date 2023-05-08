@@ -1,9 +1,9 @@
 <?php
-    $sql1 = "select * from richpig.raw_data where address = 401 order by create_at desc limit 1";
+    $sql1 = "select * from richpig.raw_data_mqtt where address = 1001 order by create_at desc limit 1";
     $result1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_array($result1);
 
-    $sql2 = "select * from richpig.mqtt_raw_data where address = 6 order by create_at desc limit 1";
+    $sql2 = "select * from richpig.raw_data_mqtt where address = 1002 order by create_at desc limit 1";
     $result2 = mysqli_query($conn, $sql2);
     $row2 = mysqli_fetch_array($result2);
 
@@ -31,7 +31,7 @@
 <!--                    <span class="info-box-icon"><i class="far fa-bookmark"></i></span>-->
 
                     <div class="info-box-content">
-                        <span class="info-box-text">보관고 내부 온도 - 32</span>
+                        <span class="info-box-text">구 보관고 온도 </span>
                         <span class="info-box-number"><?php echo $row1['data1'];?> °C</span>
 
                         <div class="progress">
@@ -50,14 +50,14 @@
 <!--                    <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>-->
 
                     <div class="info-box-content">
-                        <span class="info-box-text">보관고 외부 온도 - mq</span>
-                        <span class="info-box-number"><?php echo $row2['data1'];?> °C</span>
+                        <span class="info-box-text">구 보관고 counting</span>
+                        <span class="info-box-number"><?php echo $row1['data2'];?> 회 </span> <!-- °C</span> -->
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row2['data1'];?>%"></div>
+                            <div class="progress-bar" style="width: <?php echo $row1['data2'];?>%"></div>
                         </div>
                         <span class="progress-description">
-                            조회 시점 : <?php echo substr($row2['create_at'],5,11);?>
+                            조회 시점 : <?php echo substr($row1['create_at'],5,11);?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -70,14 +70,14 @@
 <!--                    <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>-->
 
                     <div class="info-box-content">
-                        <span class="info-box-text">보관고 외부 습도 - mq</span>
-                        <span class="info-box-number"><?php echo $row2['data2'];?> % </span>
+                        <span class="info-box-text">신 보관고 온도</span>
+                        <span class="info-box-number"><?php echo $row2['data1'];?> % </span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row1['data2'];?> %"></div>
+                            <div class="progress-bar" style="width: <?php echo $row2['data1'];?> %"></div>
                         </div>
                         <span class="progress-description">
-                            조회 시점 : <?php echo substr($row1['create_at'],5,11);?>
+                            조회 시점 : <?php echo substr($row2['create_at'],5,11);?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -89,8 +89,8 @@
 <!--                    <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>-->
 
                     <div class="info-box-content">
-                        <span class="info-box-text">-</span>
-                        <span class="info-box-number"><?php echo $row2['data2'];?> -</span>
+                        <span class="info-box-text">신 보관고 counting</span>
+                        <span class="info-box-number"><?php echo $row2['data2'];?> 회 </span> <!-- °C</span> -->
 
                         <div class="progress">
                             <div class="progress-bar" style="width: <?php echo $row2['data2'];?>"></div>
@@ -138,7 +138,7 @@
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                     보관고 내부 온도 변화량 (°C)
+                                                     구 보관고 내부 온도 변화량 (°C)
                                                 </h3>
 
                                                 <div class="card-tools">
@@ -162,7 +162,7 @@
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                    보관고 외부 온도 변화량 (°C)
+                                                    신 보관고 외부 온도 변화량 (°C)
                                                 </h3>
 
                                                 <div class="card-tools">
@@ -188,7 +188,7 @@
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                    보관고 외부 습도 변화량 (%)
+                                                    미정 (-)
                                                 </h3>
 
                                                 <div class="card-tools">

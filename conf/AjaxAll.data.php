@@ -8,6 +8,9 @@ foreach ($_REQUEST as $k => $v) {
 $s = explode(" - ",$sdateAtedate );
 $sdate = $s[0]." 00:00";
 $edate = $s[1]." 23:59";
+$md_id;
+$sensor;
+
 
 //"TDSIN"
 //"TDSOUT"
@@ -20,13 +23,14 @@ $edate = $s[1]." 23:59";
 
 if ($sensor == "data1") {
     $query = "
-        select
-            DATE_FORMAT(create_at, '%Y-%m-%d %H:%i') as DATE,
-            data1
-        from water.raw_data
-        where create_at >= '{$sdate}' and create_at <= '{$edate}' 
-            and board_number =2 
-        order by DATE asc
+    select
+        DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
+        data1
+    from richpig.raw_data_mqtt
+    where
+        address = '{$md_id}' and
+        create_at >= '{$sdate}' and create_at <= '{$edate}' 
+    order by DATE asc;
     ";
 
     $result = mysqli_query($conn, $query);
@@ -38,8 +42,8 @@ if ($sensor == "data1") {
     $create_at_arr = array();
 
     foreach ($rows as $k => $v) {
-        array_push($tds_in_arr, array($k, floor($v['data1'])));
-        array_push($create_at_arr, array($k, substr($v['DATE'],0,16)));
+        array_push($tds_in_arr, array($k, $v['data1']));
+        array_push($create_at_arr, array($k, substr($v['DATE'],6,5)));
     }
 
     $tds_in = array(
@@ -57,13 +61,14 @@ if ($sensor == "data1") {
 
 } else if ($sensor == "data2") {
     $query = "
-        select
-            DATE_FORMAT(create_at, '%Y-%m-%d %H:%i') as DATE,
-            data2
-        from water.raw_data
-        where create_at >= '{$sdate}' and create_at <= '{$edate}' 
-            and board_number = 2 
-        order by DATE asc
+    select
+        DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
+        data2
+    from richpig.raw_data_mqtt
+    where
+        address = 1001 and
+        create_at >= '{$sdate}' and create_at <= '{$edate}' 
+    order by DATE asc;
     ";
 
     $result = mysqli_query($conn, $query);
@@ -75,8 +80,8 @@ if ($sensor == "data1") {
     $create_at_arr = array();
 
     foreach ($rows as $k => $v) {
-        array_push($tds_out_arr, array($k, floor($v['data2'])));
-        array_push($create_at_arr, array($k, substr($v['DATE'],0,16)));
+        array_push($tds_out_arr, array($k, $v['data2']));
+        array_push($create_at_arr, array($k, substr($v['DATE'],6,5)));
     }
 
     $tds_out = array(
