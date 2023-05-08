@@ -71,7 +71,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">신 보관고 온도</span>
-                        <span class="info-box-number"><?php echo $row2['data1'];?> % </span>
+                        <span class="info-box-number"><?php echo $row2['data1'];?> °C</span>
 
                         <div class="progress">
                             <div class="progress-bar" style="width: <?php echo $row2['data1'];?> %"></div>
