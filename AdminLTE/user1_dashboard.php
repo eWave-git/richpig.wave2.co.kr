@@ -178,6 +178,10 @@
                         show: false
                     }
                 },
+                tooltip: {
+                  show:true,
+                  content: "온도 : %y<br/> 시간 : %x"
+                },
                 lines : {
                     fill : false,
                     color: ['#3c8dbc', '#f56954']
@@ -228,6 +232,10 @@
                     points    : {
                         show: false
                     }
+                },
+                tooltip: {
+                  show:true,
+                  content: "습도 : %y<br/> 시간 : %x"
                 },
                 lines : {
                     fill : false,
