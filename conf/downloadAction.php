@@ -25,7 +25,7 @@ function createdTable_1($rows, $field_1, $field_2) {
 }
 function createdTable_2($rows, $field_1, $field_2, $field_3, $field_4, $field_5, $field_6, $field_7, $field_8) { // 선혁 만들어보고 있음
     echo "<table>";
-    echo "<tr><td>{$field_1}</td><td>{$field_2}</td></tr>{$field_3}</td></tr>{$field_4}</td></tr>{$field_5}</td></tr>{$field_6}</td></tr>{$field_7}</td></tr>{$field_8}</td></tr>";
+    echo "<tr><td>{$field_1}</td><td>{$field_2}</td><td>{$field_3}</td><td>{$field_4}</td><td>{$field_5}</td><td>{$field_6}</td><td>{$field_7}</td><td>{$field_8}</td></tr>";
     foreach ($rows as $k => $v) {
         ?>
         <tr>
@@ -61,15 +61,15 @@ if ($md_id && $sensor && $sdateAtedate) {
         select
             DATE_FORMAT(create_at, '%Y-%m-%d %H:%i') as DATE,
             address as address,
-            board_type as type,
-            board_number as num,
             data1 as temp,
             data2 as hu,
-            data3 as co2,
-            data4 as data4
-        from raw_data
-        where create_at >= '{$sdate}' and create_at <= '{$edate}'
-        and board_number=2
+            data1 as temp2,
+            data2 as hu2,
+            data1 as temp3,
+            data2 as hu3
+        from richpig.raw_data_upa2
+        where address = '{$md_id}' and
+            create_at >= '{$sdate}' and create_at <= '{$edate}'
         order by DATE asc
     ";
 
@@ -78,7 +78,7 @@ if ($md_id && $sensor && $sdateAtedate) {
         while($row = mysqli_fetch_array($result))
             $rows[] = $row;
 
-        createdTable_2($rows, 'DATE', 'address','type','num','data1','data2','data3','data4');
+        createdTable_2($rows, 'DATE', 'address','temp','hu','temp2','hu2','temp3','hu3');
 
 
 
@@ -87,10 +87,9 @@ if ($md_id && $sensor && $sdateAtedate) {
         select
             DATE_FORMAT(create_at, '%Y-%m-%d %H:%i:00') as DATE,
             data1
-        from water.raw_data 
-        where create_at >= '{$sdate}' and create_at <= '{$edate}'
-        and board_number = 2
-        
+        from richpig.raw_data_upa2
+        where address = '{$md_id}' and 
+            create_at >= '{$sdate}' and create_at <= '{$edate}'
         order by DATE asc
     ";
 
@@ -102,14 +101,14 @@ if ($md_id && $sensor && $sdateAtedate) {
         createdTable_1($rows, 'DATE', 'data1',);
 
 
-    } else if ($sensor == "TDSOUT") {
+    } else if ($sensor == "data2") {
         $query = "
             select
                 DATE_FORMAT(create_at, '%Y-%m-%d %H:%i:00') as DATE,
-                avg(data2) as data2
-            from raw_data
-            where create_at >= '{$sdate}' and create_at <= '{$edate}'
-            group by DAY(create_at),FLOOR(MINUTE(create_at)/1)*10
+                data2
+            from richpig.raw_data_upa2
+            where address = '{$md_id}' and 
+            create_at >= '{$sdate}' and create_at <= '{$edate}'
             order by DATE asc
         ";
 
@@ -118,7 +117,7 @@ if ($md_id && $sensor && $sdateAtedate) {
         while($row = mysqli_fetch_array($result))
             $rows[] = $row;
 
-        createdTable_1($rows, 'data2','DATE');
+        createdTable_1($rows, 'DATE', 'data2');
 
     } else if ($sensor == "PRESSUREIN") {
         $query = "

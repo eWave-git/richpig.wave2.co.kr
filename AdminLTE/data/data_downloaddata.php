@@ -2,10 +2,6 @@
 include_once "../connect.php";
 ?>
 
-
-
-
-
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
@@ -22,28 +18,22 @@ include_once "../connect.php";
                         <div class="card-body">
                             <div class="form-group">
 
-                                <label for="exampleInputEmail1">농장명</label>
+                                <label for="exampleInputEmail1">제품 선택</label>
                                 <select class="custom-select rounded-0" id="md_id" name="md_id">
                                     <option value="">선택하세요.</option>
-                                    <option value="101">송화</option>
-                                    <option value="9999">전체</option>
+                                    <option value="1001">제품 A</option>
+                                    <option value="2002">제품 B</option>
                                 </select>
                             </div>
 
                             <hr>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">센서</label>
+                                <label for="exampleInputEmail1">센서 선택</label>
                                 <select class="custom-select rounded-0" id="sensor" name="sensor">
                                     <option value="">선택하세요.</option>
                                     <option value="data1">온도</option>
-                                    <option value="TDSOUT">TDS OUT</option>
-                                    <option value="PRESSUREIN">압력 IN</option>
-                                    <option value="PRESSUREOUT">압력 OUT</option>
-                                    <option value="WATERIN">유량 IN</option>
-                                    <option value="WATEROUT">유량 OUT</option>
-                                    <option value="THROUGHPUT">수처리량</option>
-                                    <option value="POWER">전력사용량</option>
+                                    <option value="data2">습도</option>
                                     <option value="dataAll">전체</option>
                                 </select>
                             </div>

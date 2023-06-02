@@ -12,8 +12,8 @@ $md_id;
 $sensor;
 
 
-//"TDSIN"
-//"TDSOUT"
+//"data1" tempture
+//"data2" humity
 //"PRESSUREIN"
 //"PRESSUREOUT"
 //"WATERIN"
@@ -26,7 +26,7 @@ if ($sensor == "data1") {
     select
         DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
         data1
-    from richpig.raw_data_mqtt
+    from richpig.raw_data_upa2
     where
         address = '{$md_id}' and
         create_at >= '{$sdate}' and create_at <= '{$edate}' 
@@ -64,9 +64,9 @@ if ($sensor == "data1") {
     select
         DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
         data2
-    from richpig.raw_data_mqtt
+    from richpig.raw_data_upa2
     where
-        address = 1001 and
+        address = '{$md_id}' and
         create_at >= '{$sdate}' and create_at <= '{$edate}' 
     order by DATE asc;
     ";

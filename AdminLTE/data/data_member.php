@@ -40,8 +40,8 @@
                                     <td><?php echo $row['name'];?></td>
                                     <td><?php echo $row['create_at'];?></td>
                                     <td>
-                                        <button type="button" class="btn btn-lg btn-success" style="user-select: auto;" data-idx="<?php echo $row['idx'];?>" >EDIT</button>
-                                        <button type="button" class="btn btn-lg btn-danger" style="user-select: auto;" data-idx="<?php echo $row['idx'];?>" >DELETE</button>
+                                        <button type="button" class="btn btn-small btn-success" style="user-select: auto;" data-idx="<?php echo $row['idx'];?>" >EDIT</button>
+                                        <button type="button" class="btn btn-small btn-danger" style="user-select: auto;" data-idx="<?php echo $row['idx'];?>" >DELETE</button>
                                     </td>
                                 </tr>
                                 <?php

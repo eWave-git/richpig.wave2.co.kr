@@ -5,7 +5,7 @@ $query = "
     select
         DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
         data1
-    from richpig.raw_data_mqtt
+    from richpig.raw_data_upa2
     where
         address = 1001 and
         create_at >= now() - INTERVAL 1 hour

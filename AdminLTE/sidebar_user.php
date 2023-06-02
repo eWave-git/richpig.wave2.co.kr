@@ -18,7 +18,7 @@
 
         <li class="nav-header">조회</li>
         <li class="nav-item">
-            <a href="#" class="nav-link  <?php if (basename($_SERVER["PHP_SELF"]) == "") {echo 'active';} ?>  ">
+            <a href="detaildata.php" class="nav-link  <?php if (basename($_SERVER["PHP_SELF"]) == "detaildata.php") {echo 'active';} ?>  ">
                 <i class="nav-icon far fa-address-card"></i>
                 <p>데이터 조회</p>
             </a>

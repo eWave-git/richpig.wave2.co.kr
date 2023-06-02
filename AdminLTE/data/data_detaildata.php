@@ -15,35 +15,35 @@
                     <div class="card-body">
                         <div class="form-group">
 
-                            <label for="exampleInputEmail1">농장선택</label>
+                            <label for="exampleInputEmail1">제품 선택</label>
                             <select class="custom-select rounded-0" id="md_id" name="md_id">
                                 <option value="">선택하세요.</option>
-                                <option value="1001">구보관고</option>
-                                <option value="1002">신보관고</option>
+                                <option value="1001">제품 A</option>
+                                <option value="2002">제품 B</option>
                             </select>
                         </div>
 
                         <hr>
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">센서</label>
+                            <label for="exampleInputEmail1">센서 선택</label>
                             <select class="custom-select rounded-0" id="sensor" name="sensor">
                                 <option value="">선택하세요.</option>
                                 <option value="data1">온도</option>
-                                <option value="data2">카운팅</option>
+                                <option value="data2">습도</option>
+                                <!-- <option value="data1">-</option>
                                 <option value="data1">-</option>
                                 <option value="data1">-</option>
                                 <option value="data1">-</option>
                                 <option value="data1">-</option>
-                                <option value="data1">-</option>
-                                <option value="bar1">bar1</option>
+                                <option value="bar1">bar1</option> -->
                             </select>
                         </div>
 
                         <hr>
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">날짜</label>
+                            <label for="exampleInputEmail1">날짜 선택</label>
                             <div class="input-group">
                                 <input type="text" class="form-control float-right" id="reservationtime" name="sdateAtedate">
                             </div>
