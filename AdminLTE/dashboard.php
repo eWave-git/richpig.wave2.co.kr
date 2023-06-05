@@ -180,7 +180,7 @@
                 },
                 tooltip: {
                   show:true,
-                  content: "온도 : %y<br/> 시간 : %x"
+                  content: "데이터 : %y <br/> 시간 : %x"
                 },
                 lines : {
                     fill : false,
@@ -235,7 +235,7 @@
                 },
                 tooltip: {
                   show:true,
-                  content: "습도 : %y<br/> 시간 : %x"
+                  content: "데이터 : %y <br/> 시간 : %x"
                 },
                 lines : {
                     fill : false,
