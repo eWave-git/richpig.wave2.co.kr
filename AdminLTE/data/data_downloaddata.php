@@ -21,8 +21,8 @@ include_once "../connect.php";
                                 <label for="exampleInputEmail1">제품 선택</label>
                                 <select class="custom-select rounded-0" id="md_id" name="md_id">
                                     <option value="">선택하세요.</option>
-                                    <option value="1001">제품 A</option>
-                                    <option value="2002">제품 B</option>
+                                    <option value="1001">ID 1001</option>
+                                    <option value="2002">ID 2002</option>
                                 </select>
                             </div>
 

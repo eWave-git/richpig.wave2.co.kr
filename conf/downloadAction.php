@@ -23,9 +23,9 @@ function createdTable_1($rows, $field_1, $field_2) {
     }
     echo "</table>";
 }
-function createdTable_2($rows, $field_1, $field_2, $field_3, $field_4, $field_5, $field_6, $field_7, $field_8) { // 선혁 만들어보고 있음
+function createdTable_2($rows, $field_1, $field_2, $field_3, $field_4) { 
     echo "<table>";
-    echo "<tr><td>{$field_1}</td><td>{$field_2}</td><td>{$field_3}</td><td>{$field_4}</td><td>{$field_5}</td><td>{$field_6}</td><td>{$field_7}</td><td>{$field_8}</td></tr>";
+    echo "<tr><td>{$field_1}</td><td>{$field_2}</td><td>{$field_3}</td><td>{$field_4}</td></tr>";
     foreach ($rows as $k => $v) {
         ?>
         <tr>
@@ -33,10 +33,6 @@ function createdTable_2($rows, $field_1, $field_2, $field_3, $field_4, $field_5,
             <td><?php echo round($v[$field_2],2)?></td>
             <td><?php echo round($v[$field_3],2)?></td>
             <td><?php echo round($v[$field_4],2)?></td>
-            <td><?php echo round($v[$field_5],2)?></td>
-            <td><?php echo round($v[$field_6],2)?></td>
-            <td><?php echo round($v[$field_7],2)?></td>
-            <td><?php echo round($v[$field_8],2)?></td>
         </tr>
         <?php
     }
@@ -61,12 +57,8 @@ if ($md_id && $sensor && $sdateAtedate) {
         select
             DATE_FORMAT(create_at, '%Y-%m-%d %H:%i') as DATE,
             address as address,
-            data1 as temp,
-            data2 as hu,
-            data1 as temp2,
-            data2 as hu2,
-            data1 as temp3,
-            data2 as hu3
+            data1 as temperature,
+            data2 as humidity
         from richpig.raw_data_upa2
         where address = '{$md_id}' and
             create_at >= '{$sdate}' and create_at <= '{$edate}'
@@ -78,7 +70,7 @@ if ($md_id && $sensor && $sdateAtedate) {
         while($row = mysqli_fetch_array($result))
             $rows[] = $row;
 
-        createdTable_2($rows, 'DATE', 'address','temp','hu','temp2','hu2','temp3','hu3');
+        createdTable_2($rows, 'DATE', 'address','temperature','humidity');
 
 
 
@@ -86,7 +78,7 @@ if ($md_id && $sensor && $sdateAtedate) {
         $query = "
         select
             DATE_FORMAT(create_at, '%Y-%m-%d %H:%i:00') as DATE,
-            data1
+            data1 as temperature
         from richpig.raw_data_upa2
         where address = '{$md_id}' and 
             create_at >= '{$sdate}' and create_at <= '{$edate}'
@@ -98,14 +90,14 @@ if ($md_id && $sensor && $sdateAtedate) {
         while($row = mysqli_fetch_array($result))
             $rows[] = $row;
 
-        createdTable_1($rows, 'DATE', 'data1',);
+        createdTable_1($rows, 'DATE', 'temperature',);
 
 
     } else if ($sensor == "data2") {
         $query = "
             select
                 DATE_FORMAT(create_at, '%Y-%m-%d %H:%i:00') as DATE,
-                data2
+                data2 as humidity
             from richpig.raw_data_upa2
             where address = '{$md_id}' and 
             create_at >= '{$sdate}' and create_at <= '{$edate}'
@@ -117,7 +109,7 @@ if ($md_id && $sensor && $sdateAtedate) {
         while($row = mysqli_fetch_array($result))
             $rows[] = $row;
 
-        createdTable_1($rows, 'DATE', 'data2');
+        createdTable_1($rows, 'DATE', 'humidity');
 
     } else if ($sensor == "PRESSUREIN") {
         $query = "

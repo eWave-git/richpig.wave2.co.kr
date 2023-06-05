@@ -11,16 +11,6 @@ $edate = $s[1]." 23:59";
 $md_id;
 $sensor;
 
-
-//"data1" tempture
-//"data2" humity
-//"PRESSUREIN"
-//"PRESSUREOUT"
-//"WATERIN"
-//"WATEROUT"
-//"THROUGHPUT"
-//"POWER"
-
 if ($sensor == "data1") {
     $query = "
     select
@@ -43,7 +33,7 @@ if ($sensor == "data1") {
 
     foreach ($rows as $k => $v) {
         array_push($tds_in_arr, array($k, $v['data1']));
-        array_push($create_at_arr, array($k, substr($v['DATE'],6,5)));
+        array_push($create_at_arr, array($k, substr($v['DATE'],0,11)));
     }
 
     $tds_in = array(
