@@ -15,7 +15,7 @@ if ($row['push_use_YN'] == 'Y') {
     $board_type = $row_1['board_type'];
     $board_number = $row_1['board_number'];
 
-    $query_2 = "select * from `raw_data_upa2` where address='{$address}' and board_type='{$board_type}' and board_number='{$board_number}'  order by idx desc limit 0,1";
+    $query_2 = "select * from `king.raw_data_upa2` where address='{$address}' and board_type='{$board_type}' and board_number='{$board_number}'  order by idx desc limit 0,1";
     $result_2 = mysqli_query($conn, $query_2);
     $row_2 = mysqli_fetch_array($result_2);
 
