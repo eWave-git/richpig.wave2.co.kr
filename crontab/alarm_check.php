@@ -1,6 +1,6 @@
 <?php
-include_once $_SERVER['PWD']."/connect.php";
-include_once $_SERVER['PWD']."/lib/common.php";
+include_once "/var/www/richpig/connect.php";
+include_once "/var/www/richpig//lib/common.php";
 
 $query = "select * from `system_data`";
 $result = mysqli_query($conn, $query);
