@@ -28,7 +28,7 @@ function push_send($push_title, $push_content, $individual = '') {
         $individual = [];
     } else {
         $individual_arr = array();
-        $push_target = "";
+        $push_target = [];
         $individual_arr[] = $individual;
     }
 
@@ -48,6 +48,7 @@ function push_send($push_title, $push_content, $individual = '') {
         "ios_badgeType" => "Increase",
         "ios_badgeCount" => "1"
     ); # type1
+    //print_r($body);exit;
     $body = json_encode($body);
 
 
