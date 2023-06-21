@@ -28,7 +28,13 @@ if ($mode == "select") {
     $password = $row_p['pass'];
     $description = $description != '' ? $description : "";
 
-    $query = "INSERT INTO `member` SET id='{$id}', name='{$name}', password='{$password}', `type`='{$type}', description='{$description}', create_at=now() ";
+    $query = "INSERT INTO `member` SET id='{$id}',
+        name='{$name}',
+        password='{$password}',
+        `type`='{$type}',
+        description='{$description}',
+        device_id='{$device_id}',
+        create_at=now() ";
     $result = mysqli_query($conn, $query);
 
     if ($result) {
@@ -48,7 +54,12 @@ if ($mode == "select") {
         $sql_sub = ", password='".$password."'";
     }
 
-    $query = "UPDATE `member` SET id='{$id}', name='{$name}' ".$sql_sub.", `type`='{$type}', description='{$description}' WHERE idx='{$idx}' ";
+    $query = "UPDATE `member` SET id='{$id}',
+            name='{$name}' ".$sql_sub.",
+            `type`='{$type}', 
+            description='{$description}',
+            device_id='{$device_id}'
+            WHERE idx='{$idx}' ";
     $result = mysqli_query($conn, $query);
 
     if ($result) {

@@ -17,11 +17,20 @@
                         </button>
                         <br/><br/>
                         <table id="example1" class="table table-bordered table-striped">
+                            <colgroup>
+                                <col width="5%">
+                                <col width="10%">
+                                <col width="10%">
+                                <col width="">
+                                <col width="20%">
+                                <col width="10%">
+                            </colgroup>
                             <thead>
                             <tr>
                                 <th>순번</th>
                                 <th>ID</th>
                                 <th>사용자명</th>
+                                <th>다바이스ID</th>
                                 <th>생성날짜</th>
                                 <th>수정/삭제</th>
                             </tr>
@@ -38,9 +47,10 @@
                                     <td><?php echo $no;?></td>
                                     <td><?php echo $row['id'];?></td>
                                     <td><?php echo $row['name'];?></td>
+                                    <td><?php echo $row['device_id'];?></td>
                                     <td><?php echo $row['create_at'];?></td>
                                     <td>
-                                        <button type="button" class="btn btn-sm btn-info" style="user-select: auto;" data-idx="<?php echo $row['idx'];?>" >EDIT</button>
+                                        <button type="button" class="btn btn-sm btn-success" style="user-select: auto;" data-idx="<?php echo $row['idx'];?>" >EDIT</button>
                                         <button type="button" class="btn btn-sm btn-danger" style="user-select: auto;" data-idx="<?php echo $row['idx'];?>" >DELETE</button>
                                     </td>
                                 </tr>
@@ -49,7 +59,7 @@
                             ?>
                             </tbody>
                             <tfoot>
-                            <!--    
+                            <!--
                             <tr>
                                 <th>No</th>
                                 <th>ID</th>
@@ -106,9 +116,15 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">다바이스ID</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="device_id" name="device_id">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">사용자 타입</label>
                         <div class="col-sm-10">
-<!--                            <input type="text" class="form-control" id="type" name="type">-->
+                            <!--                            <input type="text" class="form-control" id="type" name="type">-->
                             <select class="custom-select rounded-0" id="type" name="type">
                                 <option value="admin">관리자</option>
                                 <option value="user">사용자</option>
@@ -171,6 +187,7 @@
                         $("[name='idx']").val(obj.pay_load.result.idx);
                         $("[name='id']").val(obj.pay_load.result.id);
                         $("[name='name']").val(obj.pay_load.result.name);
+                        $("[name='device_id']").val(obj.pay_load.result.device_id);
 
                         $('#modal-lg').modal('show');
                     }
