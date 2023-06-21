@@ -31,7 +31,7 @@
         </li>
         <li class="nav-header">관리</li>
         <li class="nav-item">
-            <a href="#" class="nav-link  <?php if (basename($_SERVER["PHP_SELF"]) == "") {echo 'active';} ?>  ">
+            <a href="system.php" class="nav-link  <?php if (basename($_SERVER["PHP_SELF"]) == "system") {echo 'active';} ?>  ">
                 <i class="nav-icon far fa-address-card"></i>
                 <p>시스템 관리</p>
             </a>
@@ -43,12 +43,23 @@
             </a>
         </li>
         <li class="nav-item">
+            <a href="push_send.php" class="nav-link  <?php if (basename($_SERVER["PHP_SELF"]) == "push_send.php") {echo 'active';} ?>  ">
+                <i class="nav-icon far fa-address-card"></i>
+                <p>푸쉬 발송</p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="alarm.php" class="nav-link  <?php if (basename($_SERVER["PHP_SELF"]) == "alarm.php") {echo 'active';} ?>  ">
                 <i class="nav-icon far fa-address-card"></i>
                 <p>경보 설정</p>
             </a>
         </li>
-
+        <li class="nav-item">
+            <a href="push_history.php" class="nav-link  <?php if (basename($_SERVER["PHP_SELF"]) == "push_history.php") {echo 'active';} ?>  ">
+                <i class="nav-icon far fa-address-card"></i>
+                <p>경보 내역</p>
+            </a>
+        </li>
         <li class="nav-header"><a href="/logout.php">Logout</a></li>
 <!--        <li class="nav-header">Memeber</li>-->
 <!--        <li class="nav-item">-->
