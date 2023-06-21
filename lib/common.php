@@ -19,14 +19,9 @@ function push_send($push_title, $push_content, $individual = '') {
     $push_title_arr['en'] = $push_title;
     $push_content_arr['en'] = $push_content;
 
-    if ($individual == "") {
-        $push_target = "All";
-        $individual = [];
-    } else {
-        $individual_arr = array();
-        $push_target = [];
-        $individual_arr[] = $individual;
-    }
+    $individual_arr = array();
+    $individual_arr[] = $individual;
+    $push_target = $individual;
 
     $query = "INSERT INTO `push_send_data` SET
             push_title='{$push_title}',
