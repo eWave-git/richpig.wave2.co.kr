@@ -69,6 +69,10 @@ if ($mode == "select") {
     }
 
     echo json_encode($response);
+} else if ($mode == "device_update") {
+	$query = "UPDATE `member` SET device_id='{$device_id}' where id='{$id}'  ";
+	$result = mysqli_query($conn, $query);
+
 }
 
 
