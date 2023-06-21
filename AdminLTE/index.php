@@ -85,6 +85,38 @@ include_once "../conf/loginCheck.php";
 <!-- ./wrapper -->
 
 <?php include_once "footer.php"; ?>
+	<script>
+		//javascript 함수선언(푸시id를 받을수 있는 함수)
+		function get_pushid(pushid) {
+			//푸시아이디 확인(푸시아이디 저장처리등의 로직이 들어가면 됨)
+			//alert(pushid);  //푸시아이디 확인(테스트용)
+			$.ajax({
+                		url:'../conf/memberAction.php',
+                		type:'post',
+				data: {mode:'device_update', id:'<?php echo $_SESSION['user_type'];?>', device_id: pushid},
+                		dataType: "json",
+                		success:function(obj){
+
+
+                		}
+            		})
+		}
+	
+		//아래처럼 푸시id 가져오는 구문 사용(웹페이지가 로딩되자마자 가져오는 방법사용)
+		$(document).ready(function(){
+  		//document.addEventListener("DOMContentLoaded", function(){
+			setTimeout(function(){
+				webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({"action": "getpushid","callback": "get_pushid"}));
+			},1500);
+		})
+
+		//참고사항)아래처럼 곧바로 로컬스토리지를 사용해 조회할수도 있으나,
+		//최초 한번 앱설치후 실행시엔, 약간의 지연시간이(수초내외) 생겨 가져오지 못할수 있음.
+		$(document).ready(function(){
+  		//document.addEventListener("DOMContentLoaded", function(){
+			pushid = localStorage.getItem("pushid");
+		})
+	</script>
 </body>
 </html>
 <?php
