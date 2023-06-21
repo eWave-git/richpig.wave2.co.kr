@@ -91,15 +91,15 @@ include_once "../conf/loginCheck.php";
 			//푸시아이디 확인(푸시아이디 저장처리등의 로직이 들어가면 됨)
 			//alert(pushid);  //푸시아이디 확인(테스트용)
 			$.ajax({
-                		url:'../conf/memberAction.php',
-                		type:'post',
-				data: {mode:'device_update', id:'<?php echo $_SESSION['user_type'];?>', device_id: pushid},
-                		dataType: "json",
-                		success:function(obj){
+                url:'../conf/memberAction.php',
+                type:'post',
+                data: {mode:'device_update', id:'<?php echo $_SESSION['user_id'];?>', device_id: pushid},
+                dataType: "json",
+                success:function(obj){
 
 
-                		}
-            		})
+                }
+            })
 		}
 	
 		//아래처럼 푸시id 가져오는 구문 사용(웹페이지가 로딩되자마자 가져오는 방법사용)
