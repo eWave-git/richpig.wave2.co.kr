@@ -21,25 +21,20 @@ function push_send($push_title, $push_content, $individual = '') {
 
     $individual_arr = array();
     $individual_arr[] = $individual;
-    $push_target = $individual;
+    $push_target = array('') ;
 
     $query = "INSERT INTO `push_send_data` SET
             push_title='{$push_title}',
             push_content='{$push_content}',
             push_url='{$push_url}',
             img_url='{$img_url}',
-            push_target='{$push_target}',
+            push_target='',
             push_id='{$individual}',
             send_YN='N',
             create_at=now() ";
 
     $result = mysqli_query($conn, $query);
     $last_uid = mysqli_insert_id($conn);
-
-
-
-    $push_title_arr = array();
-    $push_content_arr = array();
 
     $app_id = "ad255f06-bf9b-40e7-a20a-69313551d364";
     $restapi_key = "Y2Y1OGI1YmQtMzM4Yi00MzMwLTgwOTMtOTcyNDQ4NDQ5YjVj";
@@ -62,9 +57,7 @@ function push_send($push_title, $push_content, $individual = '') {
         "ios_badgeType" => "Increase",
         "ios_badgeCount" => "1"
     ); # type1
-    //print_r($body);exit;
     $body = json_encode($body);
-
     if ($last_uid) {
         $ch = curl_init();
         curl_setopt_array($ch, array(
@@ -85,7 +78,7 @@ function push_send($push_title, $push_content, $individual = '') {
         $response= json_decode($response,true);
     }
 
-    if ($response['id'] && $status_code == 200 ) {
+    if (isset($response['id']) && $status_code == 200 ) {
         $query = "UPDATE `push_send_data` SET send_YN='Y', update_at=now() where idx = {$last_uid} ";
         $result = mysqli_query($conn, $query);
     }

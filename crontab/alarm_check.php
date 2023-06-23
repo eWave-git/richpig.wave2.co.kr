@@ -1,6 +1,6 @@
 <?php
-include_once $_SERVER['PWD']."/connect.php";
-include_once $_SERVER['PWD']."/lib/common.php";
+include_once "/var/www/richpig/connect.php";
+include_once "/var/www/richpig//lib/common.php";
 
 $query = "select * from `system_data`";
 $result = mysqli_query($conn, $query);
@@ -25,14 +25,14 @@ if ($row['push_use_YN'] == 'Y') {
 
         if ($row_1['data_channel'] == "data1") {
             if ($row_1['min'] > $row_2[$row_1['data_channel']] || $row_1['max'] < $row_2[$row_1['data_channel']]) {
-                issue_log_write($row_1['idx'], $row_2['idx'], "data1 값이 범위 밖에 데이터가 등록 되었습니다.", $row_1['target_user'], $row_2['create_at']);
+                issue_log_write($row_1['idx'], $row_2['idx'], "{$row_2['idx']}data1 값이 범위 밖에 데이터가 등록 되었습니다.", $row_1['target_user'], $row_2['create_at']);
             }
         }
     }
 
 
     /*************** push 발송  *****************/
-    $query = "select * from `issue_log` where push_read_YN = 'N'  order by idx desc";
+    $query = "select * from `issue_log` where issue_idx={$row_1['idx']} and raw_idx={$row_2['idx']} and push_read_YN = 'N'  order by idx desc";
     $result = mysqli_query($conn, $query);
     $rows = array();
     while($row = mysqli_fetch_array($result))
