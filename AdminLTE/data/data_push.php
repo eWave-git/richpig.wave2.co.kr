@@ -54,7 +54,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-default" >
+                        <button type="submit" class="btn btn-primary" >
                             보내기
                         </button>
                     </div>
