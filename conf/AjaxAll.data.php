@@ -16,7 +16,7 @@ if ($sensor == "data1") {
     select
         DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
         data1
-    from richpig.raw_data_upa2
+    from richpig.raw_data
     where
         address = '{$md_id}' and
         create_at >= '{$sdate}' and create_at <= '{$edate}' 
@@ -54,7 +54,7 @@ if ($sensor == "data1") {
     select
         DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
         data2
-    from richpig.raw_data_upa2
+    from richpig.raw_data
     where
         address = '{$md_id}' and
         create_at >= '{$sdate}' and create_at <= '{$edate}' 
