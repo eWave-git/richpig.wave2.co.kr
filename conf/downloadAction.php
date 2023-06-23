@@ -98,7 +98,7 @@ if ($md_id && $sensor && $sdateAtedate) {
             select
                 DATE_FORMAT(create_at, '%Y-%m-%d %H:%i:00') as DATE,
                 data2 as humidity
-            from richpig.raw_data_upa2
+            from richpig.raw_data
             where address = '{$md_id}' and 
             create_at >= '{$sdate}' and create_at <= '{$edate}'
             order by DATE asc

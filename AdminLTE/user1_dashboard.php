@@ -1,5 +1,5 @@
 <?php
-    $sql1 = "select * from richpig.raw_data_upa2 where address = '1001' order by create_at desc limit 1";
+    $sql1 = "select * from richpig.raw_data where address = '1001' order by create_at desc limit 1";
     $result1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_array($result1);
 
