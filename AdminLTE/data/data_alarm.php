@@ -15,7 +15,7 @@
                             <div class="card-body row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="inputName">적정범위</label>
+                                        <label for="inputName">설정 범위</label>
                                         <div class="row">
                                             <input type="text" class="form-control float-left col-5" name="min">
                                             <div class="float-left">&nbsp; ~ &nbsp;</div>
@@ -23,20 +23,20 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputEmail">ADDRESS</label>
-                                        <input type="text" class="form-control float-right"  name="address">
+                                        <label for="inputEmail">현장 번호(address)</label>
+                                        <input type="text" class="form-control float-right" name="address">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputSubject">Board_type</label>
-                                        <input type="text" class="form-control float-right"  name="board_type">
+                                        <label for="inputSubject">장치 타입(board_type)</label>
+                                        <input type="text" class="form-control float-right" name="board_type">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputMessage">Board_number</label>
-                                        <input type="text" class="form-control float-right"  name="board_number">
+                                        <label for="inputMessage">Board_number(board_number)</label>
+                                        <input type="text" class="form-control float-right" name="board_number">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputSubject">채널</label>
-                                        <input type="text" class="form-control float-right"  name="data_channel">
+                                        <label for="inputSubject">데이터 명(data)</label>
+                                        <input type="text" class="form-control float-right" name="data_channel">
                                     </div>
                                     <?php
                                     $query = mysqli_query($conn,"SELECT * FROM member");
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-default" >
+                        <button type="submit" class="btn btn-primary" >
                             저장
                         </button>
                     </div>
