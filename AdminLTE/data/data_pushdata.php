@@ -22,7 +22,7 @@
 
                         <br/><br/>
                         <div style="overflow-y:scroll">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example1" class="table table-bordered table-striped" style="white-space: nowrap">
                             <colgroup>
                                 <col width="10%">
                                 <col width="20%">
