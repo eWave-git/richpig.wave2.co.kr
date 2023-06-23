@@ -71,52 +71,54 @@
                         <h3 class="card-title">경보 내역</h3>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered table-striped">
-                            <colgroup>
-                                <col width="5%">
-                                <col width="10%">
-                                <col width="10%">
-                                <col width="10%">
-                                <col width="10%">
-                                <col width="10%">
-                                <col width="5%">
-                                <col width="5%">
-                            </colgroup>
-                            <thead>
-                            <tr>
-                                <th>순번</th>
-                                <th>적정범위</th>
-                                <th>ADDRESS</th>
-                                <th>Board_type</th>
-                                <th>Board_number</th>
-                                <th>채널</th>
-                                <th>target_user</th>
-                                <th>삭제</th>
-                            </tr>
-                            </thead>
-                            <?php
-                            $query = mysqli_query($conn, "SELECT * FROM issue_data order by idx desc");
-                            while($row = mysqli_fetch_array($query)) {
-                                ?>
+                        <div style="overflow-y:scroll">
+                            <table class="table table-bordered table-striped">
+                                <colgroup>
+                                    <col width="5%">
+                                    <col width="10%">
+                                    <col width="10%">
+                                    <col width="10%">
+                                    <col width="10%">
+                                    <col width="10%">
+                                    <col width="5%">
+                                    <col width="5%">
+                                </colgroup>
+                                <thead>
                                 <tr>
-                                    <td><?php echo $row['idx']; ?></td>
-                                    <td><?php echo $row['min']; ?> ~ <?php echo $row['max']; ?></td>
-                                    <td><?php echo $row['address']; ?></td>
-                                    <td><?php echo $row['board_type']; ?></td>
-                                    <td><?php echo $row['board_number']; ?></td>
-                                    <td><?php echo $row['data_channel']; ?></td>
-                                    <td><?php echo $row['target_user']; ?></td>
-                                    <td>
-                                        <a  href="../../conf/alarmAction.php?mode=delete&idx=<?php echo $row['idx']; ?>"><button type="button" class="btn btn-sm btn-danger" style="user-select: auto;" data-idx="<?php echo $row['idx'];?>" >삭제</button></a>
-                                    </td>
+                                    <th>순번</th>
+                                    <th>적정범위</th>
+                                    <th>ADDRESS</th>
+                                    <th>Board_type</th>
+                                    <th>Board_number</th>
+                                    <th>채널</th>
+                                    <th>target_user</th>
+                                    <th>삭제</th>
                                 </tr>
+                                </thead>
                                 <?php
-                            }
-                            ?>
-                            <tbody>
+                                $query = mysqli_query($conn, "SELECT * FROM issue_data order by idx desc");
+                                while($row = mysqli_fetch_array($query)) {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $row['idx']; ?></td>
+                                        <td><?php echo $row['min']; ?> ~ <?php echo $row['max']; ?></td>
+                                        <td><?php echo $row['address']; ?></td>
+                                        <td><?php echo $row['board_type']; ?></td>
+                                        <td><?php echo $row['board_number']; ?></td>
+                                        <td><?php echo $row['data_channel']; ?></td>
+                                        <td><?php echo $row['target_user']; ?></td>
+                                        <td>
+                                            <a  href="../../conf/alarmAction.php?mode=delete&idx=<?php echo $row['idx']; ?>"><button type="button" class="btn btn-sm btn-primary" style="user-select: auto;" data-idx="<?php echo $row['idx'];?>" >삭제</button></a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                                ?>
+                                <tbody>
 
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

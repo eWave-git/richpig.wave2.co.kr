@@ -21,7 +21,8 @@
                     <div class="card-body">
 
                         <br/><br/>
-                        <table id="example1" class="table table-bordered table-striped">
+                        <div style="overflow-y:scroll">
+                            <table id="example1" class="table table-bordered table-striped">
                             <colgroup>
                                 <col width="10%">
                                 <col width="20%">
@@ -55,6 +56,7 @@
                             </tbody>
 
                         </table>
+                        </div>
                     </div>
                     <!-- /.card-body -->
                 </div>

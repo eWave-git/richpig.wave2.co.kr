@@ -16,60 +16,62 @@
                             사용자 생성
                         </button>
                         <br/><br/>
-                        <table id="example1" class="table table-bordered table-striped">
-                            <colgroup>
-                                <col width="5%">
-                                <col width="10%">
-                                <col width="10%">
-                                <col width="">
-                                <col width="20%">
-                                <col width="10%">
-                            </colgroup>
-                            <thead>
-                            <tr>
-                                <th>순번</th>
-                                <th>ID</th>
-                                <th>사용자명</th>
-                                <th>다바이스ID</th>
-                                <th>생성날짜</th>
-                                <th>수정/삭제</th>
-                            </tr>
-                            </thead>
-
-                            <tbody>
-                            <?php
-                            $no = 0;
-                            $query = mysqli_query($conn,"SELECT * FROM member WHERE `id`!='admin'");
-                            while($row = mysqli_fetch_array($query)) {
-                                $no++;
-                                ?>
+                        <div style="overflow-y:scroll">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <colgroup>
+                                    <col width="5%">
+                                    <col width="10%">
+                                    <col width="10%">
+                                    <col width="">
+                                    <col width="20%">
+                                    <col width="10%">
+                                </colgroup>
+                                <thead>
                                 <tr>
-                                    <td><?php echo $no;?></td>
-                                    <td><?php echo $row['id'];?></td>
-                                    <td><?php echo $row['name'];?></td>
-                                    <td><?php echo $row['device_id'];?></td>
-                                    <td><?php echo $row['create_at'];?></td>
-                                    <td>
-                                        <button type="button" class="btn btn-sm btn-success" style="user-select: auto;" data-idx="<?php echo $row['idx'];?>" >EDIT</button>
-                                        <button type="button" class="btn btn-sm btn-danger" style="user-select: auto;" data-idx="<?php echo $row['idx'];?>" >DELETE</button>
-                                    </td>
+                                    <th>순번</th>
+                                    <th>ID</th>
+                                    <th>사용자명</th>
+                                    <th>다바이스ID</th>
+                                    <th>생성날짜</th>
+                                    <th>수정/삭제</th>
                                 </tr>
+                                </thead>
+
+                                <tbody>
                                 <?php
-                            }
-                            ?>
-                            </tbody>
-                            <tfoot>
-                            <!--
-                            <tr>
-                                <th>No</th>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Create Date</th>
-                                <th>Action</th>
-                            </tr>
-                            -->
-                            </tfoot>
-                        </table>
+                                $no = 0;
+                                $query = mysqli_query($conn,"SELECT * FROM member WHERE `id`!='admin'");
+                                while($row = mysqli_fetch_array($query)) {
+                                    $no++;
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $no;?></td>
+                                        <td><?php echo $row['id'];?></td>
+                                        <td><?php echo $row['name'];?></td>
+                                        <td><?php echo $row['device_id'];?></td>
+                                        <td><?php echo $row['create_at'];?></td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-success" style="user-select: auto;" data-idx="<?php echo $row['idx'];?>" >EDIT</button>
+                                            <button type="button" class="btn btn-sm btn-danger" style="user-select: auto;" data-idx="<?php echo $row['idx'];?>" >DELETE</button>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                                ?>
+                                </tbody>
+                                <tfoot>
+                                <!--
+                                <tr>
+                                    <th>No</th>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Create Date</th>
+                                    <th>Action</th>
+                                </tr>
+                                -->
+                                </tfoot>
+                            </table>
+                        </div>
                     </div>
                     <!-- /.card-body -->
                 </div>
