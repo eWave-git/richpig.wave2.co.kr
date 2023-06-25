@@ -56,7 +56,7 @@ if ($md_id && $sensor && $sdateAtedate) {
         $query = "
         select
             DATE_FORMAT(create_at, '%Y-%m-%d %H:%i') as DATE,
-            address as address,
+            board_number as number,
             data1 as temperature,
             data2 as humidity
         from richpig.raw_data
@@ -70,7 +70,7 @@ if ($md_id && $sensor && $sdateAtedate) {
         while($row = mysqli_fetch_array($result))
             $rows[] = $row;
 
-        createdTable_2($rows, 'DATE', 'address','temperature','humidity');
+        createdTable_2($rows, 'DATE', 'number','temperature','humidity');
 
 
 
@@ -78,6 +78,7 @@ if ($md_id && $sensor && $sdateAtedate) {
         $query = "
         select
             DATE_FORMAT(create_at, '%Y-%m-%d %H:%i:00') as DATE,
+            board_number as number,
             data1 as temperature
         from richpig.raw_data
         where address = '{$md_id}' and 
@@ -97,6 +98,7 @@ if ($md_id && $sensor && $sdateAtedate) {
         $query = "
             select
                 DATE_FORMAT(create_at, '%Y-%m-%d %H:%i:00') as DATE,
+                board_number as number,
                 data2 as humidity
             from richpig.raw_data
             where address = '{$md_id}' and 
@@ -115,6 +117,7 @@ if ($md_id && $sensor && $sdateAtedate) {
         $query = "
             select
                 DATE_FORMAT(create_at, '%Y-%m-%d %H:%i:00') as DATE,
+                board_number as number,
                 avg(data3) as data3
             from raw_data
             where create_at >= '{$sdate}' and create_at <= '{$edate}'
@@ -133,6 +136,7 @@ if ($md_id && $sensor && $sdateAtedate) {
         $query = "
             select
                 DATE_FORMAT(create_at, '%Y-%m-%d %H:%i:00') as DATE,
+                board_number as number,
                 avg(data4) as data4
             from raw_data
             where create_at >= '{$sdate}' and create_at <= '{$edate}'
@@ -152,6 +156,7 @@ if ($md_id && $sensor && $sdateAtedate) {
         $query = "
             select
                 DATE_FORMAT(create_at, '%Y-%m-%d %H:%i:00') as DATE,
+                board_number as number,
                 avg(data5) as data5
             from raw_data
             where create_at >= '{$sdate}' and create_at <= '{$edate}'
@@ -171,6 +176,7 @@ if ($md_id && $sensor && $sdateAtedate) {
         $query = "
             select
                 DATE_FORMAT(create_at, '%Y-%m-%d %H:%i:00') as DATE,
+                board_number as number,
                 avg(data6) as data6
             from raw_data
             where create_at >= '{$sdate}' and create_at <= '{$edate}'
@@ -190,6 +196,7 @@ if ($md_id && $sensor && $sdateAtedate) {
         $query = "
             select
                 DATE_FORMAT(create_at, '%Y-%m-%d %H:%i:00') as DATE,
+                board_number as number,
                 avg(data7) as data7
             from raw_data
             where create_at >= '{$sdate}' and create_at <= '{$edate}'
