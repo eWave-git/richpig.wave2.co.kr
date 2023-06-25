@@ -7,8 +7,8 @@ $query = "
         data1
     from richpig.raw_data
     where
-        address = 1001 and
-        create_at >= now() - INTERVAL 1 hour
+        address = 1001 and board_number=1 and
+        create_at >= now() - INTERVAL 12 hour
     order by DATE asc;
     ";
 //create_at >= now() - INTERVAL 30 minute

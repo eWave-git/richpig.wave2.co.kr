@@ -1,11 +1,7 @@
 <?php
-    $sql1 = "select * from richpig.raw_data where address = '1001' order by create_at desc limit 1";
+    $sql1 = "select * from richpig.raw_data where address = 1001 and board_number=1 order by idx desc limit 1";
     $result1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_array($result1);
-
-    $sql2 = "select * from mush.raw_data where address = 301 and board_number=3 order by create_at desc limit 1";
-    $result2 = mysqli_query($conn, $sql2);
-    $row2 = mysqli_fetch_array($result2);
 ?>
 
 <section class="content">
