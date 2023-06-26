@@ -2,16 +2,18 @@
 include_once "../connect.php";
 
 $query = "
-    select
-        DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
+
+    SELECT
+        DATE_FORMAT(create_at, \"%y-%m-%d %H:%i\") as DF,
         data1
     from richpig.raw_data
-    where
-        address = 1001 and board_number = 2 and
-        create_at >= now() - INTERVAL 1 hour
-    order by DATE asc;
+    where address = 3001
+        and board_number=4 
+        and create_at >= now() - INTERVAL 24 hour
+    group by  floor(DATE(DF)), floor(HOUR(DF)) ,floor(MINUTE(DF) / 10)
+     order by idx asc;
     ";
-
+//create_at >= now() - INTERVAL 30 minute
 $result = mysqli_query($conn, $query);
 $rows = array();
 while($row = mysqli_fetch_array($result))
@@ -24,13 +26,14 @@ $create_at_arr = array();
 
 foreach ($rows as $k => $v) {
     array_push($tds_in_arr, array($k, $v['data1']));
-//    array_push($tds_out_arr, array($k, floor($v['data2'])));
-    array_push($create_at_arr, array($k, substr($v['DATE'],6,5)));
+    //array_push($tds_in_arr, array($k, floor($v['data1'])));
+    //array_push($tds_out_arr, array($k, floor($v['tds_out'])));
+    array_push($create_at_arr, array($k, substr($v['DF'],9,13)));
 }
 
 $tds_in = array(
     'data' => $tds_in_arr,
-    'color'=>'#FFA07A',
+    'color'=>'#3c8dbc',
 );
 
 $tds_out = array(

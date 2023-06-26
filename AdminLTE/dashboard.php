@@ -6,6 +6,7 @@
 
 <section class="content">
     <div class="container-fluid">
+    <h4>HW ID : 1001212</h4>
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-lg-6 col-12">

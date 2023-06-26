@@ -1,15 +1,14 @@
 <?php
-    $sql1 = "select * from richpig.raw_data where address = '1001' order by create_at desc limit 1";
+    $sql1 = "select * from richpig.raw_data where address = '1001' and board_number = 2 order by idx desc limit 1";
     $result1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_array($result1);
 
-    $sql2 = "select * from mush.raw_data where address = 301 and board_number=3 order by create_at desc limit 1";
-    $result2 = mysqli_query($conn, $sql2);
-    $row2 = mysqli_fetch_array($result2);
 ?>
 
 <section class="content">
     <div class="container-fluid">
+    <h4>HW ID : 1001212</h4>
+
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-lg-6 col-12">
@@ -81,7 +80,7 @@
                                                 
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                     온도 변화량 (°C)
+                                                     온도 변화량 (°C) - 1시간
                                                 </h3>
 
                                                 <div class="card-tools">
@@ -105,7 +104,7 @@
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                    습도 변화량 (%)
+                                                    온도 변화량 (°C) - 30분
                                                 </h3>
 
                                                 <div class="card-tools">
