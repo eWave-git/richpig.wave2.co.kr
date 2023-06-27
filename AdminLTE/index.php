@@ -25,7 +25,9 @@ include_once "../conf/loginCheck.php";
         <?php 
         if ($_SESSION['user_type'] == "admin") {
             include_once "logo.php";
-        } else if ($_SESSION['user_id'] == "user1" ||$_SESSION['user_id'] == "user2" || $_SESSION['user_id'] == "user3") {
+        } else if ($_SESSION['user_id'] == "user1" ) {
+            include_once "logo.php";
+        } else if ($_SESSION['user_id'] == "user2" || $_SESSION['user_id'] == "user3") {
             include_once "logo_w.php";
         }
         ?>
@@ -36,7 +38,7 @@ include_once "../conf/loginCheck.php";
         if ($_SESSION['user_type'] == "admin") {
             include_once "sidebar.php";
         } else if ($_SESSION['user_id'] == "user1" ||$_SESSION['user_id'] == "user2" || $_SESSION['user_id'] == "user3") {
-            include_once "sidebar_user.php";
+            include_once "sidebar.php";
         }
         ?>
 
