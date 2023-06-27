@@ -11,7 +11,7 @@ $result = mysqli_query($conn, $sql);
 $row_p = mysqli_fetch_array($result);
 $password = $row_p['pass'];
 
-$query = mysqli_query($conn , "SELECT * FROM member WHERE id='$username' AND password='$password'");
+$query = mysqli_query($conn , "SELECT * FROM richpig.member WHERE id='$username' AND password='$password'");
 
 if (mysqli_num_rows($query) == 1) {
     $row = mysqli_fetch_array($query);

@@ -1,7 +1,8 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT']."/connect.php";
 
 if (isset($_COOKIE['cookie_id'])) {
-    $query = mysqli_query($conn , "SELECT * FROM member WHERE id='{$_COOKIE['cookie_id']}'");
+    $query = mysqli_query($conn , "SELECT * FROM richpig.member WHERE id='{$_COOKIE['cookie_id']}'");
 
     if (mysqli_num_rows($query) == 1) {
         $row = mysqli_fetch_array($query);
