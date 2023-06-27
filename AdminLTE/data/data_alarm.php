@@ -38,21 +38,8 @@
                                         <label for="inputSubject">데이터 명(data)</label>
                                         <input type="text" class="form-control float-right" name="data_channel">
                                     </div>
-                                    <?php
-                                    $query = mysqli_query($conn,"SELECT * FROM member");
-                                    ?>
-                                    <div class="form-group">
-                                        <label for="inputSubject">target_user</label>
-                                        <select class="form-control float-right" name="target_user">
-                                            <?php
-                                            while($row = mysqli_fetch_array($query)) {
-                                                ?>
-                                                <option value="<?php echo  $row['id'] ?>"><?php echo  $row['id'] ?></option>
-                                                <?php
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
+                                    <input type="hidden" name="target_user" value="<?php echo $_SESSION['user_id'];?>">
+
                                 </div>
                             </div>
                         </div>
