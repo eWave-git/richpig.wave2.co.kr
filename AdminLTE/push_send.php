@@ -2,7 +2,7 @@
 session_start();
 
 include_once "../lib/common.php";
-include_once "../conf/loginCheck.php";
+//include_once "../conf/loginCheck.php";
 ?>
     <!DOCTYPE html>
     <html lang="en">
