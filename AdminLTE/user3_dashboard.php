@@ -1,13 +1,9 @@
 <?php
-    $sql1 = "select * from mush.raw_data where address = 501 and board_number=2 order by create_at desc limit 1";
-    $result1 = mysqli_query($conn, $sql1);
-    $row1 = mysqli_fetch_array($result1);
+$sql = "select * from ro_jstech order by create_at desc limit 1";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result);
 
-    $sql2 = "select * from mush.raw_data where address = 501 and board_number=3 order by create_at desc limit 1";
-    $result2 = mysqli_query($conn, $sql2);
-    $row2 = mysqli_fetch_array($result2);
-
-//    echo $row['data1'];
+//    echo $row['tds_in'];
 //    echo $row['tds_out'];
 //    echo $row['pressure_in'];
 //    echo $row['pressure_out'];
@@ -16,40 +12,39 @@
 <section class="content">
     <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        새송이버섯 농장 
         <div class="row">
-            <div class="col-lg-3 col-12">
+            <div class="col-lg-3 col-6">
                 <div class="info-box bg-info">
-<!--                    <span class="info-box-icon"><i class="far fa-bookmark"></i></span>-->
+                    <!--                    <span class="info-box-icon"><i class="far fa-bookmark"></i></span>-->
 
                     <div class="info-box-content">
-                        <span class="info-box-text">온도</span>
-                        <span class="info-box-number"><?php echo $row1['data1'];?> °C</span>
+                        <span class="info-box-text">유입수 TDS 값</span>
+                        <span class="info-box-number"><?php echo $row['tds_in'];?> ppm</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row1['data1'];?>%"></div>
+                            <div class="progress-bar" style="width: <?php echo $row['tds_in']/100;?>%"></div>
                         </div>
                         <span class="progress-description">
-                            조회 시점 : <?php echo substr($row1['create_at'],5,11);?> <!-- ($row['create_at'],11,8) -->
+                            조회 시점 : <?php echo substr($row['create_at'],11,8);?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-12">
+            <div class="col-lg-3 col-6">
                 <div class="info-box bg-success">
-<!--                    <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>-->
+                    <!--                    <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>-->
 
                     <div class="info-box-content">
-                        <span class="info-box-text">습도</span>
-                        <span class="info-box-number"><?php echo $row1['data2'];?> %</span>
+                        <span class="info-box-text">처리수 TDS 값 확인</span>
+                        <span class="info-box-number"><?php echo $row['tds_out'];?> ppm</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row1['data2'];?>%"></div>
+                            <div class="progress-bar" style="width: <?php echo $row['tds_out']/100;?>%"></div>
                         </div>
                         <span class="progress-description">
-                            조회 시점 : <?php echo substr($row1['create_at'],5,11);?>
+                            조회 시점 : <?php echo substr($row['create_at'],11,8);?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -57,38 +52,38 @@
                 <!-- /.info-box -->
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-12">
+            <div class="col-lg-3 col-6">
                 <div class="info-box bg-warning">
-<!--                    <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>-->
+                    <!--                    <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>-->
 
                     <div class="info-box-content">
-                        <span class="info-box-text">이산화탄소</span>
-                        <span class="info-box-number"><?php echo $row1['data3'];?> ppm </span>
+                        <span class="info-box-text">전처리 압력 (IN)</span>
+                        <span class="info-box-number"><?php echo $row['pressure_in'];?> bar</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row1['data3'];?> %"></div>
+                            <div class="progress-bar" style="width: <?php echo $row['pressure_in'];?> %"></div>
                         </div>
                         <span class="progress-description">
-                            조회 시점 : <?php echo substr($row1['create_at'],5,11);?>
+                            조회 시점 : <?php echo substr($row['create_at'],11,8);?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-12">
+            <div class="col-lg-3 col-6">
                 <div class="info-box bg-danger">
-<!--                    <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>-->
+                    <!--                    <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>-->
 
                     <div class="info-box-content">
-                        <span class="info-box-text">PAR</span>
-                        <span class="info-box-number"><?php echo $row2['data3'];?> µmol/m^2/s</span>
+                        <span class="info-box-text">메인필터 압력 (OUT)</span>
+                        <span class="info-box-number"><?php echo $row['pressure_out'];?> bar</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row2['data3'];?>"></div>
+                            <div class="progress-bar" style="width: <?php echo $row['pressure_out'];?>%"></div>
                         </div>
                         <span class="progress-description">
-                            조회 시점 : <?php echo substr($row2['create_at'],5,11);?>
+                            조회 시점 : <?php echo substr($row['create_at'],11,8);?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -99,40 +94,41 @@
         </div>
         <!-- /.row -->
         <!-- Main row -->
-
- 
-        <!-- /.row -->
-        <!-- Main row -->
-
-
         <div class="row">
 
 
 
-            <div class="col-lg-12 col-sm-12">
+            <div class="col-lg-12 col-sm-6">
                 <div class="card card-primary card-tabs">
                     <div class="card-header p-0 pt-1">
                         <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
-                            <li class="pt-2 px-3"><h3 class="card-title">section </h3></li>
+                            <li class="pt-2 px-3"><h3 class="card-title">농장명 </h3></li>
                             <li class="nav-item">
-                                <a class="nav-link active" id="custom-tabs-two-home-tab" data-toggle="pill" href="#custom-tabs-two-home" role="tab" aria-controls="custom-tabs-two-home" aria-selected="true">새송이버섯</a>
+                                <a class="nav-link active" id="custom-tabs-two-home-tab" data-toggle="pill" href="#custom-tabs-two-home" role="tab" aria-controls="custom-tabs-two-home" aria-selected="true">두람농장</a>
                             </li>
-                           
+                            <li class="nav-item">
+                                <a class="nav-link" id="custom-tabs-two-profile-tab" data-toggle="pill" href="#custom-tabs-two-profile" role="tab" aria-controls="custom-tabs-two-profile" aria-selected="false">-</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="custom-tabs-two-messages-tab" data-toggle="pill" href="#custom-tabs-two-messages" role="tab" aria-controls="custom-tabs-two-messages" aria-selected="false">-</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="custom-tabs-two-settings-tab" data-toggle="pill" href="#custom-tabs-two-settings" role="tab" aria-controls="custom-tabs-two-settings" aria-selected="false">-</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="card-body">
                         <div class="tab-content" id="custom-tabs-two-tabContent">
-                            <!-- 송화버섯 -->
                             <div class="tab-pane fade show active" id="custom-tabs-two-home" role="tabpanel" aria-labelledby="custom-tabs-two-home-tab">
 
                                 <div class="row">
-                                    <div class="col-lg-6 col-sm-12">
+                                    <div class="col-lg-6 col-sm-6">
                                         <!-- Line chart -->
                                         <div class="card card-primary card-outline">
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                     온도 변화량 (°C)
+                                                    TDS IN, OUT (PPM)
                                                 </h3>
 
                                                 <div class="card-tools">
@@ -145,18 +141,18 @@
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <div id="Line_Chart_1" style="height: 300px;"></div>
+                                                <div id="TDS_chart" style="height: 300px;"></div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6 col-sm-12">
+                                    <div class="col-lg-6 col-sm-6">
                                         <!-- Line chart -->
                                         <div class="card card-primary card-outline">
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                    습도 변화량 (%)
+                                                    압력 IN,OUT (BAR)
                                                 </h3>
 
                                                 <div class="card-tools">
@@ -169,20 +165,20 @@
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <div id="Line_Chart_2" style="height: 300px;"></div>
+                                                <div id="pressure_chart" style="height: 300px;"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-6 col-sm-12">
+                                    <div class="col-lg-6 col-sm-6">
                                         <!-- Line chart -->
                                         <div class="card card-primary card-outline">
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                    이산화탄소 변화량 (ppm)
+                                                    유량 IN,OUT (L)
                                                 </h3>
 
                                                 <div class="card-tools">
@@ -195,18 +191,18 @@
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <div id="Line_Chart_3" style="height: 300px;"></div>
+                                                <div id="water_chart" style="height: 300px;"></div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6 col-sm-12">
+                                    <div class="col-lg-6 col-sm-6">
                                         <!-- Line chart -->
                                         <div class="card card-primary card-outline">
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                    조도 변화량 (µmol/m^2/s)
+                                                    수처리량 (L)
                                                 </h3>
 
                                                 <div class="card-tools">
@@ -219,7 +215,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <div id="Line_Chart_4" style="height: 300px;"></div>
+                                                <div id="throughput_chart" style="height: 300px;"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -227,6 +223,16 @@
                             </div>
 
 
+
+                            <div class="tab-pane fade" id="custom-tabs-two-profile" role="tabpanel" aria-labelledby="custom-tabs-two-profile-tab">
+
+                            </div>
+                            <div class="tab-pane fade" id="custom-tabs-two-messages" role="tabpanel" aria-labelledby="custom-tabs-two-messages-tab">
+
+                            </div>
+                            <div class="tab-pane fade" id="custom-tabs-two-settings" role="tabpanel" aria-labelledby="custom-tabs-two-settings-tab">
+
+                            </div>
                         </div>
                     </div>
                     <!-- /.card -->
@@ -236,9 +242,115 @@
 
         </div>
 
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 ">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="far fa-chart-bar"></i>
+                            전력사용량 기간별 (W)
+                        </h3>
 
-    
-    
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="power_chart" style="height: 300px;"></div>
+                    </div>
+                    <!-- /.card-body-->
+                </div>
+                <!-- /.card -->
+            </div>
+
+            <div class="col-lg-6 col-sm-6">
+                <!-- BAR CHART -->
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="far fa-chart-bar"></i>
+                            물탱크 수위 (%)
+                        </h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="watertank_chart" style="height: 300px;"></div>
+                    </div>
+                    <!-- /.card-body-->
+                </div>
+                <!-- /.card -->
+            </div>
+
+        </div>
+        <!-- /.row (main row) -->
+        <?php
+        $sql = "select * from control_data  order by create_at desc limit 1";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($result);
+
+        $relay1 = !$row['relay1'] && "" ? 0 : $row['relay1'];
+        $relay2 = !$row['relay2'] && "" ? 0 : $row['relay2'];
+
+        if ($relay1 == 1 && $relay2 == 1) {
+            $do_str = "작동중";
+            $do_css = "bg-gradient-primary";
+            $do_checked = "checked";
+        } else if ($relay1 == 0 && $relay2 == 0) {
+            $do_str = "멈춤";
+            $do_css = "bg-gradient-danger";
+            $do_checked = "";
+        } else {
+            $do_str = "멈춤";
+            $do_css = "bg-gradient-danger";
+            $do_checked = "";
+        }
+        ?>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6">
+                <!-- Bootstrap Switch -->
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">시스템 운영</h3>
+                        <button type="button" name="control_button" class="btn btn-block <?php echo $do_css;?> btn-flat btn-sm" style="user-select: auto;"><?php echo $do_str;?></button>
+                    </div>
+                    <div class="card-body">
+                        <input type="checkbox" name="control_checkbox" <?php echo $do_checked;?> data-bootstrap-switch>
+
+                    </div>
+                </div>
+                <!-- /.card -->
+            </div>
+            <!--
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="card card-secondary">
+                                <div class="card-header">
+                                    <h3 class="card-title">시스템 세척</h3>
+                                </div>
+                                <div class="card-body">
+
+                                    <input type="checkbox" name="my-checkbox"  checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                </div>
+                    </div>
+            -->
+            <!-- /.card -->
+        </div>
+    </div>
+
+
+    </div><!-- /.container-fluid -->
 </section>
 <script src="plugins/jquery/jquery.min.js"></script>
 
@@ -248,29 +360,29 @@
             $(this).bootstrapSwitch('state', $(this).prop('checked'));
         })
 
-        $("[name='control_checkbox_1']").on('switchChange.bootstrapSwitch',function (e,data) {
+        $("[name='control_checkbox']").on('switchChange.bootstrapSwitch',function (e,data) {
             $.ajax({
                 url: "../conf/Ajaxcontrol.check.php",
                 dataType: 'json',
-                data: {relay:'relay1', do_work:data},
+                data: {do_work:data},
                 success: function (data) {
                     const do_work = data.pay_load.do_work
+                    const do_cip = data.pay_load.do_cip
+                    if (do_work == 1 && do_cip == 0) {
+                        $("[name='control_button']").text('작동중')
 
-                    if (do_work == 1) {
-                        $("[name='control_button_1']").text('작동중')
+                        $("[name='control_button']").addClass("bg-gradient-primary");
+                        $("[name='control_button']").removeClass("bg-gradient-danger");
+                    } else if (do_work == 0 && do_cip == 1) {
+                        $("[name='control_button']").text('멈춤')
 
-                        $("[name='control_button_1']").addClass("bg-gradient-primary");
-                        $("[name='control_button_1']").removeClass("bg-gradient-danger");
-                    } else if (do_work == 0) {
-                        $("[name='control_button_1']").text('멈춤')
-
-                        $("[name='control_button_1']").addClass("bg-gradient-danger");
-                        $("[name='control_button_1']").removeClass("bg-gradient-primary");
+                        $("[name='control_button']").addClass("bg-gradient-danger");
+                        $("[name='control_button']").removeClass("bg-gradient-primary");
                     } else {
-                        $("[name='control_button_1']").text('멈춤')
+                        $("[name='control_button']").text('멈춤')
 
-                        $("[name='control_button_1']").addClass("bg-gradient-danger");
-                        $("[name='control_button_1']").removeClass("bg-gradient-primary");
+                        $("[name='control_button']").addClass("bg-gradient-danger");
+                        $("[name='control_button']").removeClass("bg-gradient-primary");
                     }
                 },
                 error: function () {
@@ -279,47 +391,16 @@
             });
         });
 
-        $("[name='control_checkbox_2']").on('switchChange.bootstrapSwitch',function (e,data) {
-            $.ajax({
-                url: "../conf/Ajaxcontrol.check.php",
-                dataType: 'json',
-                data: {relay:'relay2', do_work:data},
-                success: function (data) {
-                    const do_work = data.pay_load.do_work
 
-                    if (do_work == 1) {
-                        $("[name='control_button_2']").text('작동중')
+        GetTDSData()
 
-                        $("[name='control_button_2']").addClass("bg-gradient-primary");
-                        $("[name='control_button_2']").removeClass("bg-gradient-danger");
-                    } else if (do_work == 0) {
-                        $("[name='control_button_2']").text('멈춤')
-
-                        $("[name='control_button_2']").addClass("bg-gradient-danger");
-                        $("[name='control_button_2']").removeClass("bg-gradient-primary");
-                    } else {
-                        $("[name='control_button_2']").text('멈춤')
-
-                        $("[name='control_button_2']").addClass("bg-gradient-danger");
-                        $("[name='control_button_2']").removeClass("bg-gradient-primary");
-                    }
-                },
-                error: function () {
-                    // setTimeout(GetData, updateInterval);
-                }
-            });
-        });
-
-        Get_Line_Chart_1_Data()
-
-        // 데이터 불러오기
-        function Get_Line_Chart_1_Data() {
+        function GetTDSData() {
             $.ajaxSetup({ cache: false });
             $.ajax({
-                url: "../conf/user3_Ajax_Line_Chart_1.data.php",
+                url: "../conf/AjaxTDS.data.php",
                 dataType: 'json',
                 success: function (data) {
-                    _Line_Chart_1_update(data)
+                    TDSupdate(data)
                 },
                 error: function () {
                     // setTimeout(GetData, updateInterval);
@@ -327,11 +408,10 @@
             });
         }
 
-        // 데이터 바인딩 ( 데이터 갖고온것을 차트구조에 맡게 설정 및 html에 뿌려주기 )
-        function _Line_Chart_1_update(_data) {
+        function TDSupdate(_data) {
             const dataset = _data.pay_load.dataset
-            
-            $.plot('#Line_Chart_1', [dataset['tds_in'],dataset['tds_out']], {
+
+            $.plot('#TDS_chart', [dataset['tds_in'],dataset['tds_out']], {
                 grid  : {
                     hoverable  : true,
                     borderColor: '#f3f3f3',
@@ -344,7 +424,7 @@
                         show: true
                     },
                     points    : {
-                        show: false
+                        show: true
                     }
                 },
                 lines : {
@@ -363,15 +443,15 @@
         }
 
 
-        Get_Line_Chart_2_Data()
+        GetPressureData()
 
-        function Get_Line_Chart_2_Data() {
+        function GetPressureData() {
             $.ajaxSetup({ cache: false });
             $.ajax({
-                url: "../conf/user3_Ajax_Line_Chart_2.data.php",
+                url: "../conf/AjaxPressure.data.php",
                 dataType: 'json',
                 success: function (data) {
-                    _Line_Chart_2_update(data)
+                    Pressureupdate(data)
                 },
                 error: function () {
                     // setTimeout(GetData, updateInterval);
@@ -379,10 +459,10 @@
             });
         }
 
-        function _Line_Chart_2_update(_data) {
+        function Pressureupdate(_data) {
             const dataset = _data.pay_load.dataset
 
-            $.plot('#Line_Chart_2', [dataset['pressure_in'],dataset['pressure_out']], {
+            $.plot('#pressure_chart', [dataset['pressure_in'],dataset['pressure_out']], {
                 grid  : {
                     hoverable  : true,
                     borderColor: '#f3f3f3',
@@ -395,7 +475,7 @@
                         show: true
                     },
                     points    : {
-                        show: false
+                        show: true
                     }
                 },
                 lines : {
@@ -413,15 +493,15 @@
             })
         }
 
-        Get_Line_Chart_3_Data()
+        GetWaterData()
 
-        function Get_Line_Chart_3_Data() {
+        function GetWaterData() {
             $.ajaxSetup({ cache: false });
             $.ajax({
-                url: "../conf/user3_Ajax_Line_Chart_3.data.php",
+                url: "../conf/AjaxWater.data.php",
                 dataType: 'json',
                 success: function (data) {
-                    _Line_Chart_3_update(data)
+                    Waterupdate(data)
                 },
                 error: function () {
                     // setTimeout(GetData, updateInterval);
@@ -429,10 +509,10 @@
             });
         }
 
-        function _Line_Chart_3_update(_data) {
+        function Waterupdate(_data) {
             const dataset = _data.pay_load.dataset
 
-            $.plot('#Line_Chart_3', [dataset['water_in'],dataset['water_out']], {
+            $.plot('#water_chart', [dataset['water_in'],dataset['water_out']], {
                 grid  : {
                     hoverable  : true,
                     borderColor: '#f3f3f3',
@@ -445,7 +525,7 @@
                         show: true
                     },
                     points    : {
-                        show: false
+                        show: true
                     }
                 },
                 lines : {
@@ -463,15 +543,15 @@
             })
         }
 
-        Get_Line_Chart_4_Data()
+        GetThroughputData()
 
-        function Get_Line_Chart_4_Data() {
+        function GetThroughputData() {
             $.ajaxSetup({ cache: false });
             $.ajax({
-                url: "../conf/user3_Ajax_Line_Chart_4.data.php",
+                url: "../conf/AjaxThroughput.data.php",
                 dataType: 'json',
                 success: function (data) {
-                    _Line_Chart_4_update(data)
+                    Throughputupdate(data)
                 },
                 error: function () {
                     // setTimeout(GetData, updateInterval);
@@ -479,10 +559,10 @@
             });
         }
 
-        function _Line_Chart_4_update(_data) {
+        function Throughputupdate(_data) {
             const dataset = _data.pay_load.dataset
 
-            $.plot('#Line_Chart_4', [dataset['throughput']], {
+            $.plot('#throughput_chart', [dataset['throughput']], {
                 grid  : {
                     hoverable  : true,
                     borderColor: '#f3f3f3',
@@ -495,7 +575,7 @@
                         show: true
                     },
                     points    : {
-                        show: false
+                        show: true
                     }
                 },
                 lines : {
@@ -512,5 +592,80 @@
                 }
             })
         }
+
+        GetPowerData()
+
+        function GetPowerData() {
+            $.ajaxSetup({ cache: false });
+            $.ajax({
+                url: "../conf/AjaxPower.data.php",
+                dataType: 'json',
+                success: function (data) {
+                    Powerupdate(data)
+                },
+                error: function () {
+                    // setTimeout(GetData, updateInterval);
+                }
+            });
+        }
+
+        function Powerupdate(_data) {
+            const dataset = _data.pay_load.dataset
+
+            $.plot('#power_chart', [dataset['power']], {
+                grid  : {
+                    borderWidth: 1,
+                    borderColor: '#f3f3f3',
+                    tickColor  : '#f3f3f3'
+                },
+                series: {
+                    bars: {
+                        show: true, barWidth: 0.5, align: 'center',
+                    },
+                },
+                colors: ['#3c8dbc'],
+                xaxis : {
+                    ticks: _data.pay_load.create_at,
+                }
+            })
+        }
+
+        GetWaterTankData()
+
+        function GetWaterTankData() {
+            $.ajaxSetup({ cache: false });
+            $.ajax({
+                url: "../conf/AjaxWaterTank.data.php",
+                dataType: 'json',
+                success: function (data) {
+                    GetWaterTankupdate(data)
+                },
+                error: function () {
+                    // setTimeout(GetData, updateInterval);
+                }
+            });
+        }
+
+        function GetWaterTankupdate(_data) {
+            const dataset = _data.pay_load.dataset
+
+            $.plot('#watertank_chart', [dataset['watertank']], {
+                grid  : {
+                    borderWidth: 1,
+                    borderColor: '#f3f3f3',
+                    tickColor  : '#f3f3f3'
+                },
+                series: {
+                    bars: {
+                        show: true, barWidth: 0.5, align: 'center',
+                    },
+                },
+                colors: ['#3c8dbc'],
+                xaxis : {
+                    ticks: _data.pay_load.create_at,
+                }
+            })
+        }
+
     });
 </script>

@@ -41,7 +41,7 @@ function push_send($push_title, $push_content, $individual = '') {
 
 
 
-    $data['']= '';
+    $data['']= $push_url;
 
     $url = "https://onesignal.com/api/v1/notifications";
     $body = array(
