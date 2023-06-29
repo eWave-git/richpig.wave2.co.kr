@@ -10,10 +10,10 @@
 <!--    </div>-->
 <!--  </div>-->
     <?php
-    if ($_SESSION['user_type'] == "admin") {
+    if ($_SESSION['user_type'] == "admin" || $_SESSION['user_id'] == "richpig1") {
         include_once "sidebar_admin.php";
     } else {
-        if ($_SESSION['user_id'] == "user1" ) {
+        if ($_SESSION['user_id'] == "user1" || $_SESSION['user_id'] == "richpig2" ) {
             include_once "sidebar_user.php";
         } else if ($_SESSION['user_id'] == "user2" || $_SESSION['user_id'] == "user3") {
             include_once "sidebar_user.php";

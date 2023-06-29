@@ -5,11 +5,11 @@ include_once "../connect.php";
 $query = "
     select
         DATE_FORMAT(create_at, '%Y-%m-%d %H:00:00') as DATE,
-        avg(tds_in) as tds_in,
-        avg(tds_out) as tds_out
-    from ro_jstech
-    where (create_at like '%2023-06-09%')
-    group by DATE
+        avg(data1) as tds_in,
+        avg(data2) as tds_out
+    from raw_data_12ch
+    where (create_at >= now() - INTERVAL 1 HOUR)
+    group by HOUR(create_at),FLOOR(MINUTE(create_at)/1)*10
     order by DATE asc ;
 ";
 

@@ -3,10 +3,10 @@
 <!--  <span class="brand-text font-weight-light">AdminLTE 3</span>-->
 
     <?php
-    if ($_SESSION['user_type'] == "admin") {
+    if ($_SESSION['user_type'] == "admin" || $_SESSION['user_id'] == "richpig1") {
         echo "<img src=\"/image/logo.gif\">";
     } else {
-        if ($_SESSION['user_id'] == "user1" ) {
+        if ($_SESSION['user_id'] == "user1" || $_SESSION['user_id'] == "richpig2" ) {
             echo "<img src=\"/image/logo.gif\">";
         } else if ($_SESSION['user_id'] == "user2" || $_SESSION['user_id'] == "user3") {
             echo "<img src=\"/image/ewave_logo.gif\">";

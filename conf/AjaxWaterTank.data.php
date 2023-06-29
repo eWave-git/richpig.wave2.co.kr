@@ -3,8 +3,8 @@ session_start();
 include_once "../connect.php";
 
 $query = "
-    SELECT level_origin, level_acid, level_cip, level_alkali
-    FROM ro_jstech
+    SELECT data8, data9, data10, data11
+    FROM raw_data_12ch
     order by create_at desc limit 1,1;
 ";
 $result = mysqli_query($conn, $query);
@@ -17,10 +17,10 @@ $watertank_arr = array();
 $create_at_arr = array();
 
 
-array_push($watertank_arr, array(0, floor($rows[0]['level_origin'])));
-array_push($watertank_arr, array(1, floor($rows[0]['level_acid'])));
-array_push($watertank_arr, array(2, floor($rows[0]['level_cip'])));
-array_push($watertank_arr, array(3, floor($rows[0]['level_alkali'])));
+array_push($watertank_arr, array(0, floor($rows[0]['data8'])));
+array_push($watertank_arr, array(1, floor($rows[0]['data9'])));
+array_push($watertank_arr, array(2, floor($rows[0]['data10'])));
+array_push($watertank_arr, array(3, floor($rows[0]['data11'])));
 
 
 array_push($create_at_arr, array(0, 'level_origin'));

@@ -1,5 +1,5 @@
 <?php
-$sql = "select * from ro_jstech order by create_at desc limit 1";
+$sql = "select * from raw_data_12ch where address = '10' and board_number = 1 order by idx desc limit 1";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
 
@@ -19,10 +19,10 @@ $row = mysqli_fetch_array($result);
 
                     <div class="info-box-content">
                         <span class="info-box-text">유입수 TDS 값</span>
-                        <span class="info-box-number"><?php echo $row['tds_in'];?> ppm</span>
+                        <span class="info-box-number"><?php echo $row['data1'];?> ppm</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row['tds_in']/100;?>%"></div>
+                            <div class="progress-bar" style="width: <?php echo $row['data1']/100;?>%"></div>
                         </div>
                         <span class="progress-description">
                             조회 시점 : <?php echo substr($row['create_at'],11,8);?>
@@ -38,7 +38,7 @@ $row = mysqli_fetch_array($result);
 
                     <div class="info-box-content">
                         <span class="info-box-text">처리수 TDS 값 확인</span>
-                        <span class="info-box-number"><?php echo $row['tds_out'];?> ppm</span>
+                        <span class="info-box-number"><?php echo $row['data2'];?> ppm</span>
 
                         <div class="progress">
                             <div class="progress-bar" style="width: <?php echo $row['tds_out']/100;?>%"></div>
@@ -58,7 +58,7 @@ $row = mysqli_fetch_array($result);
 
                     <div class="info-box-content">
                         <span class="info-box-text">전처리 압력 (IN)</span>
-                        <span class="info-box-number"><?php echo $row['pressure_in'];?> bar</span>
+                        <span class="info-box-number"><?php echo $row['data3'];?> bar</span>
 
                         <div class="progress">
                             <div class="progress-bar" style="width: <?php echo $row['pressure_in'];?> %"></div>
@@ -77,7 +77,7 @@ $row = mysqli_fetch_array($result);
 
                     <div class="info-box-content">
                         <span class="info-box-text">메인필터 압력 (OUT)</span>
-                        <span class="info-box-number"><?php echo $row['pressure_out'];?> bar</span>
+                        <span class="info-box-number"><?php echo $row['data4'];?> bar</span>
 
                         <div class="progress">
                             <div class="progress-bar" style="width: <?php echo $row['pressure_out'];?>%"></div>

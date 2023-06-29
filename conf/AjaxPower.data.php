@@ -6,8 +6,8 @@ $query = "
     select
         DATE_FORMAT(create_at, '%Y-%m-%d') as DATE,
         round(sum(current*380/1000),0) as power
-    FROM ro_jstech
-    where (create_at >= now() - INTERVAL 23 day)
+    FROM raw_data_12ch
+    where (create_at >= now() - INTERVAL 6 day)
     group by DATE
     order by DATE asc;
 ";

@@ -5,9 +5,9 @@ include_once "../connect.php";
 $query = "
     select
         DATE_FORMAT(create_at, '%Y-%m-%d %H:00:00') as DATE,
-        sum(water_in) as water_in,
-        sum(water_out) as water_out
-    FROM ro_jstech where (create_at like '%2023-06-10%')
+        sum(data5) as water_in,
+        sum(data6) as water_out
+    FROM raw_data_12ch where (create_at >= now() - INTERVAL 12 HOUR)
     group by DATE
     order by DATE asc;
 ";

@@ -28,9 +28,9 @@ include_once "../lib/common.php";
         <!-- Sidebar -->
 
         <?php 
-        if ($_SESSION['user_type'] == "admin") {
+        if ($_SESSION['user_type'] == "admin" || $_SESSION['user_id'] == "richpig1") {
             include_once "sidebar.php";
-        } else if ($_SESSION['user_id'] == "user1" ||$_SESSION['user_id'] == "user2" || $_SESSION['user_id'] == "user3") {
+        } else if ($_SESSION['user_id'] == "user1" || $_SESSION['user_id'] == "richpig2" ||$_SESSION['user_id'] == "user2" || $_SESSION['user_id'] == "user3") {
             include_once "sidebar.php";
         }
         ?>
@@ -48,9 +48,9 @@ include_once "../lib/common.php";
 
         <!-- Main content -->
         <?php
-        if ($_SESSION['user_type'] == "admin") {
+        if ($_SESSION['user_type'] == "admin" || $_SESSION['user_id'] == "richpig1") {
             include_once "dashboard.php";
-        } else if ($_SESSION['user_id'] == "user1") {
+        } else if ($_SESSION['user_id'] == "user1" || $_SESSION['user_id'] == "richpig2") {
             include_once "user1_dashboard.php";
         } else if ($_SESSION['user_id'] == "user2") {
             include_once "user2_dashboard.php";
