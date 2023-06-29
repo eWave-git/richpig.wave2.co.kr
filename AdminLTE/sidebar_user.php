@@ -30,12 +30,12 @@
 <!--                <p>사용자 관리</p>-->
 <!--            </a>-->
 <!--        </li>-->
-        <li class="nav-item">
-            <a href="push_send.php" class="nav-link  <?php if (basename($_SERVER["PHP_SELF"]) == "push_send.php") {echo 'active';} ?>  ">
-                <i class="nav-icon far fa-address-card"></i>
-                <p>푸쉬 발송</p>
-            </a>
-        </li>
+<!--        <li class="nav-item">-->
+<!--            <a href="push_send.php" class="nav-link  --><?php //if (basename($_SERVER["PHP_SELF"]) == "push_send.php") {echo 'active';} ?><!--  ">-->
+<!--                <i class="nav-icon far fa-address-card"></i>-->
+<!--                <p>푸쉬 발송</p>-->
+<!--            </a>-->
+<!--        </li>-->
         <li class="nav-item">
             <a href="alarm.php" class="nav-link  <?php if (basename($_SERVER["PHP_SELF"]) == "alarm.php") {echo 'active';} ?>  ">
                 <i class="nav-icon far fa-address-card"></i>

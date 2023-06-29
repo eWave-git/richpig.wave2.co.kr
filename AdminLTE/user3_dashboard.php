@@ -424,8 +424,12 @@ $row = mysqli_fetch_array($result);
                         show: true
                     },
                     points    : {
-                        show: true
+                        show: false
                     }
+                },
+                tooltip: {
+                    show:true,
+                    content: "데이터 : %y<br/> 시간 : %x"
                 },
                 lines : {
                     fill : false,
@@ -475,8 +479,12 @@ $row = mysqli_fetch_array($result);
                         show: true
                     },
                     points    : {
-                        show: true
+                        show: false
                     }
+                },
+                tooltip: {
+                    show:true,
+                    content: "데이터 : %y<br/> 시간 : %x"
                 },
                 lines : {
                     fill : false,
@@ -525,8 +533,12 @@ $row = mysqli_fetch_array($result);
                         show: true
                     },
                     points    : {
-                        show: true
+                        show: false
                     }
+                },
+                tooltip: {
+                    show:true,
+                    content: "데이터 : %y<br/> 시간 : %x"
                 },
                 lines : {
                     fill : false,
@@ -575,8 +587,12 @@ $row = mysqli_fetch_array($result);
                         show: true
                     },
                     points    : {
-                        show: true
+                        show: false
                     }
+                },
+                tooltip: {
+                    show:true,
+                    content: "데이터 : %y<br/> 시간 : %x"
                 },
                 lines : {
                     fill : false,
