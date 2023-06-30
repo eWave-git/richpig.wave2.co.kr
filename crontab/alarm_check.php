@@ -35,14 +35,14 @@ if ($row['push_use_YN'] == 'Y') {
 
                 if ($row_1['data_channel'] == "data1") {
                     if ($row_1['min'] > $row_2[$row_1['data_channel']] || $row_1['max'] < $row_2[$row_1['data_channel']]) {
-                        $contents = $row_2['address']." 장치의 온도가 ".$row_2['data1']." 입니다. 설정값 ".$row_1['min']." ~ ".$row_1['max']." 범위 밖에 있습니다.";
+                        $contents = $row_2['address'].$row_2['board_type'].$row_2['board_number']." 장치의 온도가 ".$row_2['data1']." 입니다. 설정값 ".$row_1['min']." ~ ".$row_1['max']." 범위 밖에 있습니다.";
                         issue_log_write($row_1['idx'], $row_2['idx'], $contents, $row_1['target_user'], $row_2['create_at']);
                     }
                 }
 
                 if ($row_1['data_channel'] == "data2") {
                     if ($row_1['min'] > $row_2[$row_1['data_channel']] || $row_1['max'] < $row_2[$row_1['data_channel']]) {
-                        $contents = $row_2['address']." 장치의 습도가 ".$row_2['data2']." 입니다. 설정값 ".$row_1['min']." ~ ".$row_1['max']." 범위 밖에 있습니다.";
+                        $contents = $row_2['address'].$row_2['board_type'].$row_2['board_number']." 장치의 습도가 ".$row_2['data2']." 입니다. 설정값 ".$row_1['min']." ~ ".$row_1['max']." 범위 밖에 있습니다.";
                         issue_log_write($row_1['idx'], $row_2['idx'], $contents, $row_1['target_user'], $row_2['create_at']);
                     }
                 }
