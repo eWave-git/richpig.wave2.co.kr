@@ -48,6 +48,12 @@
                 <p>경보 내역</p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="temperature_setting.php" class="nav-link  <?php if (basename($_SERVER["PHP_SELF"]) == "temperature_setting.php") {echo 'active';} ?>  ">
+                <i class="nav-icon far fa-address-card"></i>
+                <p>온도 설정</p>
+            </a>
+        </li>
         <li class="nav-header"><a href="/logout.php">Logout</a></li>
         <!--        <li class="nav-header">Memeber</li>-->
         <!--        <li class="nav-item">-->

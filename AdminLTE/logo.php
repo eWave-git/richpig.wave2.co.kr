@@ -6,7 +6,7 @@
     if ($_SESSION['user_type'] == "admin" || $_SESSION['user_id'] == "richpig1") {
         echo "<img src=\"/image/logo.gif\">";
     } else {
-        if ($_SESSION['user_id'] == "user1" || $_SESSION['user_id'] == "richpig2" ) {
+        if ($_SESSION['user_id'] == "user1" || $_SESSION['user_id'] == "richpig2" || $_SESSION['user_id'] == "richpig3") {
             echo "<img src=\"/image/logo.gif\">";
         } else if ($_SESSION['user_id'] == "user2" || $_SESSION['user_id'] == "user3") {
             echo "<img src=\"/image/ewave_logo.gif\">";
