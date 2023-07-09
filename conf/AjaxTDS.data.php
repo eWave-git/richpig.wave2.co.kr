@@ -4,7 +4,7 @@ include_once "../connect.php";
 
 $query = "
     select
-        DATE_FORMAT(create_at, '%Y-%m-%d %H:00:00') as DATE,
+        DATE_FORMAT(create_at, '%Y-%m-%d %H:%i:00') as DATE,
         avg(data1) as tds_in,
         avg(data2) as tds_out
     from raw_data_12ch

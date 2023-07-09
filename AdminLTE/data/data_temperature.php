@@ -15,11 +15,11 @@
                             <div class="card-body row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="inputEmail">현장 번호(address)</label>
+                                        <label for="inputEmail">장치번호</label>
                                         <input type="text" class="form-control float-right" name="address">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputSubject">장치 타입(board_type)</label>
+                                        <label for="inputSubject">타입</label>
                                         <input type="text" class="form-control float-right" name="board_type">
                                     </div>
 <!--                                    <div class="form-group">-->
@@ -27,7 +27,7 @@
 <!--                                        <input type="text" class="form-control float-right" name="board_number">-->
 <!--                                    </div>-->
                                     <div class="form-group">
-                                        <label for="inputSubject">데이터 명(data)</label>
+                                        <label for="inputSubject">설정온도</label>
                                         <input type="text" class="form-control float-right" name="temperature">
                                     </div>
 

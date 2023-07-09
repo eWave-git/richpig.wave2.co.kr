@@ -8,7 +8,7 @@ $query = "
     from richpig.raw_data
     where
         address = 1500 and board_type = 24 and board_number = 1 and
-        create_at >= now() - INTERVAL 30 minute
+        create_at >= now() - INTERVAL 60 minute
     order by DATE asc;
     ";
 
