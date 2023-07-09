@@ -35,8 +35,8 @@ $row1 = mysqli_fetch_array($result1);
                     <!--                    <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>-->
 
                     <div class="info-box-content">
-                        <span class="info-box-text">습도</span>
-                        <span class="info-box-number"><?php echo $row1['data2'];?> %</span>
+                        <span class="info-box-text">설정온도</span>
+                        <span class="info-box-number"><?php echo $row1['data2'];?> °C</span>
 
                         <div class="progress">
                             <div class="progress-bar" style="width: <?php echo $row1['data2'];?>%"></div>
@@ -80,7 +80,7 @@ $row1 = mysqli_fetch_array($result1);
 
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                    온도 변화량 (°C) - 12시간
+                                                    12시간 온도 변화
                                                 </h3>
 
                                                 <div class="card-tools">
@@ -104,7 +104,7 @@ $row1 = mysqli_fetch_array($result1);
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                    설정 온도
+                                                    1시간 온도 변화
                                                 </h3>
 
                                                 <div class="card-tools">
