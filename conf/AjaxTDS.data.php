@@ -31,12 +31,12 @@ foreach ($rows as $k => $v) {
 
 $tds_in = array(
     'data' => $tds_in_arr,
-    'color'=>'#3c8dbc',
+    'color'=>'#0000FF',
 );
 
 $tds_out = array(
     'data' => $tds_out_arr,
-    'color'=>'#00c0ef',
+    'color'=>'#FF0000',
 );
 
 //echo "<xmp>";

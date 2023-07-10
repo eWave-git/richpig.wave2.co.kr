@@ -4,10 +4,10 @@ include_once "../connect.php";
 
 $query = "
     select
-        DATE_FORMAT(create_at, '%Y-%m-%d') as DATE,
-        round(sum(current*380/1000),0) as power
+        DATE_FORMAT(create_at, '%m-%d') as DATE,
+        round(sum(data7*380/1000),0) as power
     FROM raw_data_12ch
-    where (create_at >= now() - INTERVAL 6 day)
+    where (create_at >= now() - INTERVAL 10 day)
     group by DATE
     order by DATE asc;
 ";

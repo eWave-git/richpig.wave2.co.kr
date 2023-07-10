@@ -420,8 +420,9 @@ $row = mysqli_fetch_array($result);
                 },
                 series: {
                     shadowSize: 0,
+                    color: '#f56954',
                     lines     : {
-                        show: true
+                        show: true,
                     },
                     points    : {
                         show: false

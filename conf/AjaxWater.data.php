@@ -30,12 +30,12 @@ foreach ($rows as $k => $v) {
 
 $water_in = array(
     'data' => $water_in_arr,
-    'color'=>'#3c8dbc',
+    'color'=>'#0000FF',
 );
 
 $water_out = array(
     'data' => $water_out_arr,
-    'color'=>'#00c0ef',
+    'color'=>'#FF0000',
 );
 
 //echo "<xmp>";
