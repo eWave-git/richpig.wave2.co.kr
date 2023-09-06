@@ -41,7 +41,7 @@
                             <tbody>
                             <?php
                             $no = 0;
-                            $query = mysqli_query($conn,"SELECT * FROM push_send_data where send_YN = 'Y' and create_at >= (now() - INTERVAL 2 DAY ) order by idx desc");
+                            $query = mysqli_query($conn,"SELECT * FROM push_send_data where member_id ='{$_SESSION['user_id']}' and send_YN = 'Y' and create_at >= (now() - INTERVAL 2 DAY ) order by idx desc");
                             while($row = mysqli_fetch_array($query)) {
                                 ?>
                                 <tr>
