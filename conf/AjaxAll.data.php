@@ -18,7 +18,7 @@ if ($sensor == "data1") {
         data1
     from richpig.raw_data
     where
-        address = 1001 and board_number = '{$md_id}' and
+        address = 2307 and board_number = '{$md_id}' and
         create_at >= '{$sdate}' and create_at <= '{$edate}' 
     order by DATE asc;
     ";
@@ -56,7 +56,7 @@ if ($sensor == "data1") {
         data2
     from richpig.raw_data
     where
-        address = 1001 and board_number = '{$md_id}' and
+        address = 2307 and board_number = '{$md_id}' and
         create_at >= '{$sdate}' and create_at <= '{$edate}' 
     order by DATE asc;
     ";

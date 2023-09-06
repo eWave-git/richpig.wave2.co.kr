@@ -4,11 +4,11 @@ include_once "../connect.php";
 $query = "
     select
         DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
-        data2
+        data1
     from richpig.raw_data
     where
-        address = 1001 and board_number=1 and
-        create_at >= now() - INTERVAL 1 hour
+        address = 2307 and board_number=3 and
+        create_at >= now() - INTERVAL 6 hour
     order by DATE asc;
     "; 
 //create_at >= now() - INTERVAL 30 minute
@@ -23,7 +23,7 @@ $pressure_out_arr = array();
 $create_at_arr = array();
 
 foreach ($rows as $k => $v) {
-    array_push($pressure_in_arr, array($k, $v['data2']));
+    array_push($pressure_in_arr, array($k, $v['data1']));
 //    array_push($pressure_in_arr, array($k, floor($v['data2'])));
 //    array_push($pressure_out_arr, array($k, floor($v['pressure_out'])));
     array_push($create_at_arr, array($k, substr($v['DATE'],6,5)));

@@ -31,6 +31,7 @@ include_once "conf/autoLogin.php";
 
     </div>
     <!-- /.login-logo -->
+    
     <div class="card">
         <div class="text-center"><img src="image/main_logo.gif"></div>
         <div class="card-body login-card-body">

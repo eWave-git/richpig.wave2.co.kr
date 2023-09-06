@@ -5,10 +5,10 @@ $query = "
     select
         DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
         data1
-    from mush.raw_data
+    from richpig.raw_data
     where
-        address = 401 and board_number = 2 and
-        create_at >= now() - INTERVAL 4 hour
+        address = 2307 and board_number = 2 and
+        create_at >= now() - INTERVAL 1 hour
     order by DATE asc;
     ";
 //create_at >= now() - INTERVAL 30 minute

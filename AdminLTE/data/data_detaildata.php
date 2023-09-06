@@ -18,8 +18,8 @@
                             <label for="exampleInputEmail1">제품 선택</label>
                             <select class="custom-select rounded-0" id="md_id" name="md_id">
                                 <option value="">선택하세요.</option>
-                                <option value="1">ID 1001-22-1 (new)</option>
-                                <option value="2">ID 1001-21-2</option>
+                                <option value="1">ID 2307-22-01</option>
+                                <option value="2">ID 2307-23-02</option>
                             </select>
                         </div>
 

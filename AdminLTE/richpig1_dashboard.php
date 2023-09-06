@@ -1,12 +1,12 @@
 <?php
-$sql1 = "select * from richpig.raw_data where address = 1001 and board_number=1 order by idx desc limit 1";
+$sql1 = "select * from richpig.raw_data where address = 2307 and board_number=3 order by idx desc limit 1";
 $result1 = mysqli_query($conn, $sql1);
 $row1 = mysqli_fetch_array($result1);
 ?>
 
 <section class="content">
     <div class="container-fluid">
-        <h4>HW ID : 1001221</h4>
+        <h4> 보관고 01 (SN ID : 2307-25-03) </h4>
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-lg-6 col-12">
@@ -33,7 +33,7 @@ $row1 = mysqli_fetch_array($result1);
                     <!--                    <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>-->
 
                     <div class="info-box-content">
-                        <span class="info-box-text">습도</span>
+                        <span class="info-box-text">설정온도</span>
                         <span class="info-box-number"><?php echo $row1['data2'];?> %</span>
 
                         <div class="progress">
@@ -78,7 +78,7 @@ $row1 = mysqli_fetch_array($result1);
 
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                    온도 변화량 (°C)
+                                                    온도 변화량 (°C) - 1시간
                                                 </h3>
 
                                                 <div class="card-tools">
@@ -102,7 +102,7 @@ $row1 = mysqli_fetch_array($result1);
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                    습도 변화량 (%)
+                                                    온도 변화량 (°C) - 6시간
                                                 </h3>
 
                                                 <div class="card-tools">
