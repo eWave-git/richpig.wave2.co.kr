@@ -32,7 +32,7 @@
                                     ?>
                                     <input type="hidden" name="system_data_mode" value="<?=$mode?>">
                                     <div class="form-group">
-                                        <label for="inputSubject">push 사용유무</label>
+                                        <label for="inputSubject">알림 메시지 사용 / 미사용</label>
                                         <div class="row col-10">
                                             <select class="form-control float-right" name="push_use_YN">
                                                 <option value="Y" <?php echo ($row['push_use_YN'] == 'Y') ? "selected" : '';?> >사용</option>
@@ -45,9 +45,9 @@
                                     <div class="form-group">
                                         <label for="inputName">설정 범위</label>
                                         <div class="row col-12">
-                                            <input type="text" class="form-control float-left col-5" name="min">
+                                            <input type="text" class="form-control float-left col-5" name="min" placeholder="최소값">
                                             <div class="float-left">&nbsp; ~ &nbsp;</div>
-                                            <input type="text" class="form-control float-left col-5" name="max">
+                                            <input type="text" class="form-control float-left col-5" name="max" placeholder="최대값">
                                         </div>
                                     </div>
                                 </div>
