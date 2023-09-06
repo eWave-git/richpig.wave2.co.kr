@@ -11,7 +11,7 @@ function print_r2($arr) {
     exit;
 }
 
-function push_send($push_title, $push_content, $individual = '') {
+function push_send($member_id, $push_title, $push_content, $individual = '') {
     global $conn;
 
     $push_url = "http://richpig.wave2.co.kr/AdminLTE/push_history.php";
@@ -24,6 +24,7 @@ function push_send($push_title, $push_content, $individual = '') {
     $push_target = array('') ;
 
     $query = "INSERT INTO `push_send_data` SET
+            member_id='{$member_id}',
             push_title='{$push_title}',
             push_content='{$push_content}',
             push_url='{$push_url}',
@@ -86,19 +87,21 @@ function push_send($push_title, $push_content, $individual = '') {
     return $response;
 }
 
-function issue_log_write ($issue_idx, $raw_idx, $contents, $target_user, $raw_create) {
+function issue_log_write ($member_id, $issue_idx, $raw_idx, $contents, $target_user, $raw_create) {
     global $conn;
 
-    $query = "select * from `issue_log` where issue_idx = $issue_idx and raw_idx = $raw_idx and raw_create = '{$raw_create}' ";
+    $query = "select * from `issue_log` where `member_id` = $member_id and `issue_idx` = $issue_idx and `raw_idx` = $raw_idx and `raw_create` = '{$raw_create}' ";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result);
     if (!$row) {
-        $query = "insert into `issue_log` set issue_idx = $issue_idx,
-                        raw_idx = $raw_idx,
-                        contents = '{$contents}',
-                        push_read_YN = 'N',
-                        target_user = '{$target_user}',
-                        raw_create = '{$raw_create}',
+        $query = "insert into `issue_log` set
+                        `member_id` = $member_id, 
+                        `issue_idx` = $issue_idx,
+                        `raw_idx` = $raw_idx,
+                        `contents` = '{$contents}',
+                        `push_read_YN` = 'N',
+                        `target_user` = '{$target_user}',
+                        `raw_create` = '{$raw_create}',
                         create_at=now() ";
 
         $result = mysqli_query($conn, $query);
