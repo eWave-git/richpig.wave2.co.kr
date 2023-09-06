@@ -7,7 +7,7 @@ $query = "
         data1
     from richpig.raw_data
     where
-        address = 2307 and board_number = 3 and
+        address = 2307 and board_number=3 and
         create_at >= now() - INTERVAL 3 HOUR
     order by DATE asc;
     ";
