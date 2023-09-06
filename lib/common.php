@@ -109,4 +109,14 @@ function issue_log_write ($member_id, $issue_idx, $raw_idx, $contents, $target_u
     }
 
 }
+function get_davice($member_id) {
+    global $conn;
+
+    $query = "select * from `davice` where `member_id` = '$member_id'";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_array($result);
+
+    return $row;
+}
+
 ?>
