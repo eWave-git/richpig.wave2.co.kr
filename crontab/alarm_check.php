@@ -17,7 +17,7 @@ foreach ($member_array as $mak => $mav) {
         while($m_row = mysqli_fetch_array($m_result))
             $m_rows[] = $m_row;
 
-        if (count($m_rows) > 0) {
+        if (is_countable($m_rows) && count($m_rows) > 0) {
             foreach ($m_rows as $mk => $mv ) {
 
                 $query_1 = "select * from `issue_data` where `member_id`='{$mav}' and `target_user` = '{$mv['id']}' order by idx desc limit 0,1";
