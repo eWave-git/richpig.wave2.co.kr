@@ -2,10 +2,9 @@
 include_once "/var/www/richpig/connect.php";
 include_once "/var/www/richpig/lib/common.php";
 
-$member_array = array('savebox2', 'savebox3');
+$member_array = array('savebox1', 'savebox2', 'savebox3', 'savebox4', 'savebox5');
 
 foreach ($member_array as $mak => $mav) {
-    echo $mav;
 
     $query = "select * from `system_data` where member_id = '{$mav}'";
     $result = mysqli_query($conn, $query);
@@ -56,8 +55,9 @@ foreach ($member_array as $mak => $mav) {
 
 
                 /*************** push 발송  *****************/
-                $query = "select * from `issue_log` where `member_id`={$mav} and `issue_idx`={$row_1['idx']} and `raw_idx`={$row_2['idx']} and `push_read_YN` = 'N'  order by idx desc";
-                $result = mysqli_query($conn, $query);
+                $query = "select * from `issue_log` where `member_id`='{$mav}' and `issue_idx`={$row_1['idx']} and `raw_idx`={$row_2['idx']} and `push_read_YN` = 'N'  order by idx desc";
+
+		$result = mysqli_query($conn, $query);
                 $rows = array();
                 while($row = mysqli_fetch_array($result))
                     $rows[] = $row;
