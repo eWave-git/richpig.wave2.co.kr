@@ -6,6 +6,7 @@
             <div class="col-12">
                 <form action="../conf/alarmAction.php" method="post">
                     <input type="hidden" name="mode" value="create">
+                    <input type="hidden" name="member_id" value="<?=$_SESSION['user_id']?>">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">경보 설정</h3>
@@ -83,7 +84,7 @@
                                 </tr>
                                 </thead>
                                 <?php
-                                $query = mysqli_query($conn, "SELECT * FROM issue_data order by idx desc");
+                                $query = mysqli_query($conn, "SELECT * FROM issue_data where member_id = '{$_SESSION['user_id']}' order by idx desc");
                                 while($row = mysqli_fetch_array($query)) {
                                     ?>
                                     <tr>

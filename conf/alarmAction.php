@@ -7,7 +7,9 @@ foreach ($_REQUEST as $k => $v) {
 }
 
 if ($mode == "create") {
-    $query = "INSERT INTO `issue_data` SET address='{$address}',
+    $query = "INSERT INTO `issue_data` SET
+        member_id='{$member_id}', 
+        address='{$address}',
         board_type='{$board_type}',
         board_number='{$board_number}',
         data_channel='{$data_channel}',
