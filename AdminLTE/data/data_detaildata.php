@@ -20,6 +20,9 @@
                                 <option value="">선택하세요.</option>
                                 <option value="1">ID 2307-22-01</option>
                                 <option value="2">ID 2307-23-02</option>
+                                <option value="3">ID 2307-25-03(보관고)</option>
+                                <option value="4">ID 2307-25-04(보관고)</option>
+                                <option value="5">ID 2307-25-05(보관고)</option>
                             </select>
                         </div>
 
@@ -30,7 +33,7 @@
                             <select class="custom-select rounded-0" id="sensor" name="sensor">
                                 <option value="">선택하세요.</option>
                                 <option value="data1">온도</option>
-                                <option value="data2">습도</option>
+                                <option value="data2">습도(설정온도)</option>
                                 <!-- <option value="data1">-</option>
                                 <option value="data1">-</option>
                                 <option value="data1">-</option>
@@ -100,7 +103,7 @@
 
             $.ajaxSetup({ cache: false });
             $.ajax({
-                url: "../conf/AjaxAll.data.php",
+                url: "../conf/savebox1_select_all.data.php",
                 type:'post',
                 data: {md_id:$("[name='md_id']").val(), sensor:$("[name='sensor']").val(), sdateAtedate:$("[name='sdateAtedate']").val()},
                 dataType: 'json',

@@ -62,7 +62,18 @@ include_once "../lib/common.php";
                 include_once "user2_dashboard.php";
             } else if ($_SESSION['user_id'] == "user3") {
                 include_once "user3_dashboard.php";
+            } else if ($_SESSION['user_id'] == "savebox1") {
+                include_once "savebox1_dashboard.php";
+            } else if ($_SESSION['user_id'] == "savebox2") {
+                include_once "savebox2_dashboard.php";
+            } else if ($_SESSION['user_id'] == "savebox3") {
+                include_once "savebox3_dashboard.php";
+            } else if ($_SESSION['user_id'] == "savebox4") {
+                include_once "savebox4_dashboard.php";
+            } else if ($_SESSION['user_id'] == "savebox5") {
+                include_once "savebox5_dashboard.php";
             }
+
         } else if ($_SESSION['user_type'] == "user") {
             if ($_SESSION['user_id'] == "richpig1") {
                 include_once "richpig1_dashboard.php";
