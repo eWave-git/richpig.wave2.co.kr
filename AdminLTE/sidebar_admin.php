@@ -1,5 +1,6 @@
 <!-- Sidebar Menu -->
 <nav class="mt-2">
+
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
@@ -48,7 +49,13 @@
                 <p>경보 내역</p>
             </a>
         </li>
-        <li class="nav-header"><a href="/logout.php">Logout</a></li>
+        <li class="nav-header">
+            <?php
+                $_tem = get_davice($_SESSION['user_id']);
+                echo $_tem['address']."-".$_tem['board_type']."-".$_tem['board_number'];
+            ?>
+        </li>
+        <li class="nav-header"><a href="/logout.php"><?php echo  $_SESSION['user_id'];?> : Logout</a></li>
         <!--        <li class="nav-header">Memeber</li>-->
         <!--        <li class="nav-item">-->
         <!--            <a href="member.php" class="nav-link  --><?php //if (basename($_SERVER["PHP_SELF"]) == "member.php") {echo 'active';} ?><!--  ">-->

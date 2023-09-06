@@ -10,11 +10,13 @@
 <!--    </div>-->
 <!--  </div>-->
     <?php
-    if ($_SESSION['user_type'] == "admin") {
-        include_once "sidebar_admin.php";
-    } else if ($_SESSION['user_type'] == "user") {
-        include_once "sidebar_user.php";
-    }
+//    if ($_SESSION['user_type'] == "admin") {
+//        include_once "sidebar_admin.php";
+//    } else if ($_SESSION['user_type'] == "user") {
+//        include_once "sidebar_user.php";
+//    }
+        include_once "richpig_sidebar.php";
+
     ?>
 
 </div>

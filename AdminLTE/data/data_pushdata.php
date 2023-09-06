@@ -15,7 +15,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">경보 발송 내역</h3>
+                        <h3 class="card-title">알람 발송 내역</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
