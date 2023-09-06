@@ -9,7 +9,7 @@ from richpig.raw_data
 where
     address = 2307 and board_number=5 and
     create_at >= now() - INTERVAL 24 HOUR
-
+group by HOUR(create_at),FLOOR(MINUTE(create_at)/10)*10
 order by DATE asc;
     "; 
 //create_at >= now() - INTERVAL 30 minute
