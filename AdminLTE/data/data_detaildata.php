@@ -15,7 +15,7 @@
                     <div class="card-body">
                         <div class="form-group">
 
-                            <label for="exampleInputEmail1">제품 선택</label>
+                            <label for="exampleInputEmail1">디바이스 선택</label>
                             <select class="custom-select rounded-0" id="md_id" name="md_id">
                                 <option value="">선택하세요.</option>
                                 <option value="1">ID 2307-22-01</option>
@@ -29,11 +29,11 @@
                         <hr>
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">센서 선택</label>
+                            <label for="exampleInputEmail1">데이터 선택</label>
                             <select class="custom-select rounded-0" id="sensor" name="sensor">
                                 <option value="">선택하세요.</option>
                                 <option value="data1">온도</option>
-                                <option value="data2">습도(설정온도)</option>
+                                <!-- <option value="data2">습도(설정온도)</option> -->
                                 <!-- <option value="data1">-</option>
                                 <option value="data1">-</option>
                                 <option value="data1">-</option>

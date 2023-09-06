@@ -2,14 +2,15 @@
 include_once "../connect.php";
 
 $query = "
-    select
-        DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
-        data1
-    from richpig.raw_data
-    where
-        address = 2307 and board_number=5 and
-        create_at >= now() - INTERVAL 12 hour
-    order by DATE asc;
+select
+    DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
+    round(avg(data1),1) as data1
+from richpig.raw_data
+where
+    address = 2307 and board_number=5 and
+    create_at >= now() - INTERVAL 24 HOUR
+group by HOUR(create_at),FLOOR(MINUTE(create_at)/10)*10
+order by DATE asc;
     "; 
 //create_at >= now() - INTERVAL 30 minute
 $result = mysqli_query($conn, $query);

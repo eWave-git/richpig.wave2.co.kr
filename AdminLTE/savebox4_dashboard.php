@@ -79,7 +79,7 @@
                                                 
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                     온도 변화 (°C) - 3시간
+                                                     온도 변화 (°C) - 6시간
                                                 </h3>
 
                                                 <div class="card-tools">
@@ -103,7 +103,7 @@
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <i class="far fa-chart-bar"></i>
-                                                    온도 변화 (°C) - 12시간
+                                                    온도 변화 (°C) - 24시간
                                                 </h3>
 
                                                 <div class="card-tools">

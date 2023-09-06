@@ -15,11 +15,12 @@ if ($sensor == "data1") {
     $query = "
     select
         DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
-        data1
+        round(avg(data1),1) as data1
     from richpig.raw_data
     where
         address = 2307 and board_number = '{$md_id}' and
         create_at >= '{$sdate}' and create_at <= '{$edate}' 
+    group by DAY(create_at), HOUR(create_at),FLOOR(MINUTE(create_at)/10)*10
     order by DATE asc;
     ";
 
