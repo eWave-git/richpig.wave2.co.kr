@@ -75,38 +75,28 @@
                                     <col width="10%">
                                     <col width="10%">
                                     <col width="10%">
-                                    <col width="10%">
-                                    <col width="10%">
-                                    <col width="5%">
-                                    <col width="5%">
+
                                 </colgroup>
                                 <thead>
                                 <tr>
                                     <th>순번</th>
-                                    <th>적정범위</th>
-                                    <th>ADDRESS</th>
-                                    <th>Board_type</th>
-                                    <th>Board_number</th>
-                                    <th>채널</th>
-                                    <th>target_user</th>
-                                    <th>삭제</th>
+                                    <th>최소값 설정</th>
+                                    <th>최대값 설정</th>
+                                    <th>설정시점</th>
+
                                 </tr>
                                 </thead>
                                 <?php
-                                $query = mysqli_query($conn, "SELECT * FROM issue_data where member_id = '{$_SESSION['user_id']}' order by idx desc");
+                                $query = mysqli_query($conn, "SELECT * FROM issue_data where member_id = '{$_SESSION['user_id']}' order by idx desc limit 0, 1");
                                 while($row = mysqli_fetch_array($query)) {
                                     ?>
                                     <tr>
                                         <td><?php echo $row['idx']; ?></td>
-                                        <td><?php echo $row['min']; ?> ~ <?php echo $row['max']; ?></td>
-                                        <td><?php echo $row['address']; ?></td>
-                                        <td><?php echo $row['board_type']; ?></td>
-                                        <td><?php echo $row['board_number']; ?></td>
-                                        <td><?php echo $row['data_channel']; ?></td>
-                                        <td><?php echo $row['target_user']; ?></td>
-                                        <td>
-                                            <a  href="../../conf/alarmAction.php?mode=delete&idx=<?php echo $row['idx']; ?>"><button type="button" class="btn btn-sm btn-primary" style="user-select: auto;" data-idx="<?php echo $row['idx'];?>" >삭제</button></a>
-                                        </td>
+                                        <td><?php echo $row['min']; ?></td>
+                                        <td><?php echo $row['max']; ?></td>
+                                        <td><?php echo substr($row['create_at'],5,11); ?></td>
+
+
                                     </tr>
                                     <?php
                                 }
