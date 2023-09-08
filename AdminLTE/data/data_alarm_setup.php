@@ -69,7 +69,7 @@
                     </div>
                     <div class="card-body">
                         <div style="overflow-y:scroll">
-                            <table class="table table-bordered table-striped" style="white-space: nowrap; font-size: 14px">
+                            <table class="table table-bordered table-striped" style="white-space: nowrap; font-size: 10px">
                                 <colgroup>
                                     <col width="5%">
                                     <col width="8%">
