@@ -18,11 +18,11 @@
                             <label for="exampleInputEmail1">디바이스 선택</label>
                             <select class="custom-select rounded-0" id="md_id" name="md_id">
                                 <option value="">선택하세요.</option>
-                                <option value="1">ID 2307-22-01</option>
-                                <option value="2">ID 2307-23-02</option>
-                                <option value="3">ID 2307-25-03(보관고)</option>
-                                <option value="4">ID 2307-25-04(보관고)</option>
-                                <option value="5">ID 2307-25-05(보관고)</option>
+                                <option value="1">SN 2307-22-01</option>
+                                <option value="2">SN 2307-23-02</option>
+                                <option value="3">SN 2307-25-03(보관고)</option>
+                                <option value="4">SN 2307-25-04(보관고)</option>
+                                <option value="5">SN 2307-25-05(보관고)</option>
                             </select>
                         </div>
 

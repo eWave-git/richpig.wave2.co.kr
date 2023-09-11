@@ -4,7 +4,7 @@ include_once "../connect.php";
 $query = "
 select
     DATE_FORMAT(create_at, '%m-%d %H:%i') as DATE,
-    data1
+    round(avg(data1),1) as data1
 from richpig.raw_data
 where
     address = 2307 and board_number=5 and

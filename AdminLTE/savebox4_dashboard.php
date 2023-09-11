@@ -1,12 +1,12 @@
 <?php
-    $sql1 = "select * from richpig.raw_data where address = 2307 and board_number = 3 order by idx desc limit 1";
+    $sql1 = "select * from richpig.raw_data where address = 2307 and board_number = 4 order by idx desc limit 1";
     $result1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_array($result1);
 ?>
 
 <section class="content">
     <div class="container-fluid">
-    <h4>SN ID : 2307-25-03</h4>
+    <h4>SN ID : 2307-25-044444444444444444444444444</h4>
 
         <!-- Small boxes (Stat box) -->
         <div class="row">

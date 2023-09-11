@@ -24,10 +24,6 @@ $user_info = get_davice($_SESSION['user_id']);
                                     <div class="form-group">
                                         <label for="inputSubject">설정온도</label>
                                         <select class="form-control float-right" name="temperature">
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
                                             <option value="14">14</option>
                                             <option value="15">15</option>
                                             <option value="16">16</option>
