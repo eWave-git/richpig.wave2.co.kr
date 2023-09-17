@@ -53,7 +53,7 @@ $user_info = get_davice($_SESSION['user_id']);
         </div>
 
 
-        
+
         <div class="row">
             <div class="col-12">
                 <form action="../conf/lightAction.php" method="post">
@@ -72,7 +72,7 @@ $user_info = get_davice($_SESSION['user_id']);
 
                                     <div class="form-group">
                                         <label for="inputSubject">조명 설정</label>
-                                        <select class="form-control float-right" name="light">
+                                        <select class="form-control float-right" name="temperature">
                                             <option value="Off" selected >꺼짐</option>
                                             <option value="On">켜짐</option>
                                             
