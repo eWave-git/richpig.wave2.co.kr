@@ -51,52 +51,6 @@ $user_info = get_davice($_SESSION['user_id']);
                 </form>
             </div>
         </div>
-
-
-
-        <div class="row">
-            <div class="col-12">
-                <form action="../conf/lightAction.php" method="post">
-                    <input type="hidden" name="mode" value="create">
-                    <input type="hidden" class="form-control float-right" name="address" value="<?php echo $user_info['address'];?>">
-                    <input type="hidden" class="form-control float-right" name="board_type" value="<?php echo $user_info['board_type'];?>">
-                    <input type="hidden" class="form-control float-right" name="board_number" value="<?php echo $user_info['board_number'];?>">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">조명 설정</h3>
-                        </div>
-
-                        <div class="card-body table-responsive">
-                            <div class="card-body row">
-                                <div class="col-12">
-
-                                    <div class="form-group">
-                                        <label for="inputSubject">조명 설정</label>
-                                        <select class="form-control float-right" name="temperature">
-                                            <option value="Off" selected >꺼짐</option>
-                                            <option value="On">켜짐</option>
-                                            
-                                        </select>
-
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <?php if ($_SESSION['user_id'] == "savebox1" || $_SESSION['user_id'] == "savebox2") { ?>
-                            <button type="button" class="btn btn-primary" onclick="javascript:alert('조명설정을 할 수 없습니다.')" >저장</button>
-                        <?php } else { ?>
-                            <button type="submit" class="btn btn-primary" >저장</button>
-                        <?php } ?>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-
-
-
     </div>
     <!-- /.container-fluid -->
 </section>
