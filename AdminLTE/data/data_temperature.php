@@ -24,7 +24,6 @@ $user_info = get_davice($_SESSION['user_id']);
                                     <div class="form-group">
                                         <label for="inputSubject">설정온도</label>
                                         <select class="form-control float-right" name="temperature">
-                                            <option value="11">11</option>
                                             <option value="12">12</option>    
                                             <option value="13">13</option>
                                             <option value="14">14</option>
@@ -35,10 +34,7 @@ $user_info = get_davice($_SESSION['user_id']);
                                             <option value="19">19</option>
                                             <option value="20">20</option>
                                         </select>
-
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
@@ -55,10 +51,6 @@ $user_info = get_davice($_SESSION['user_id']);
     <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
-
-
-
-
 <script src="plugins/jquery/jquery.min.js"></script>
 <script>
 
