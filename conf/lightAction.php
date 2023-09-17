@@ -6,12 +6,12 @@ foreach ($_REQUEST as $k => $v) {
     $$k = $v;
 }
 
-if ($temperature && is_numeric($temperature)) {
+if ($light) {
 
     $_txt = $address.'/'.$board_type.'/'.$board_number;
 
-    $commend = 'mosquitto_pub -h 13.209.31.152 -t Peltier/'.$_txt.'/Light/'.$temperature.' -u ewave -P andante -m '.$temperature.'';
-    echo $commend;
+    $commend = 'mosquitto_pub -h 13.209.31.152 -t Peltier/'.$_txt.'/Light/'.$light.' -u ewave -P andante -m '.$light.'';
+    
     $output=null;
     $retval=null;
     exec($commend, $output, $retval);
