@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once "../connect.php";
-
+include_once "../lib/common.php";
 $response = array();
 
 foreach ($_REQUEST as $k => $v) {
@@ -25,7 +25,4 @@ $query = "UPDATE `member` SET
 
 $result = mysqli_query($conn, $query);
 
-header("Location:../AdminLTE/password_change.php");
-
-
-
+error_loc_msg('/AdminLTE/password_change.php','비밀번호가 변경 되었습니다.');

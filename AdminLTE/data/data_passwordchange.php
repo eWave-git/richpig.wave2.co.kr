@@ -21,7 +21,6 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputSubject">6자리 ~ 20자리 이내 영문, 숫자, 특수문자 중 2가지 이상을 혼합하여 입력해주세요.</label>
-
                                     </div>
                                 </div>
                             </div>
