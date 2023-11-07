@@ -8,7 +8,7 @@ $query = "
         avg(data3) as pressure_in,
         avg(data4) as pressure_out
     from raw_data_12ch
-    where (create_at >= now() - INTERVAL 1 HOUR )
+    where (create_at >= now() - INTERVAL 24 HOUR )
     group by HOUR(create_at),FLOOR(MINUTE(create_at)/1)*10
     order by DATE asc ;
 ";

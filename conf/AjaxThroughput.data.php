@@ -7,7 +7,7 @@ $query = "
 	DATE_FORMAT(create_at, '%Y-%m-%d %H:00:00') as DATE,
         round((sum(data5)-sum(data5-data6)),0) as throughput
     FROM raw_data_12ch
-    where (create_at >= now() - INTERVAL 12 HOUR)
+    where (create_at >= now() - INTERVAL 72 HOUR)
 	    group by DATE
 	    order by DATE asc;
 ";

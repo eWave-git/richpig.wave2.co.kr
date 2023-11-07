@@ -7,7 +7,7 @@ $query = "
         DATE_FORMAT(create_at, '%Y-%m-%d %H:00:00') as DATE,
         sum(data5) as water_in,
         sum(data6) as water_out
-    FROM raw_data_12ch where (create_at >= now() - INTERVAL 12 HOUR)
+    FROM raw_data_12ch where (create_at >= now() - INTERVAL 72 HOUR)
     group by DATE
     order by DATE asc;
 ";

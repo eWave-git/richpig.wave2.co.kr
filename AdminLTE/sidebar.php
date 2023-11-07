@@ -10,12 +10,22 @@
 <!--    </div>-->
 <!--  </div>-->
     <?php
-//    if ($_SESSION['user_type'] == "admin") {
-//        include_once "sidebar_admin.php";
-//    } else if ($_SESSION['user_type'] == "user") {
-//        include_once "sidebar_user.php";
-//    }
+
+        if ($_SESSION['user_id'] == "savebox1") {
+          include_once "richpig_sidebar1.php";
+        } else if ($_SESSION['user_id'] == "savebox2") {
+          include_once "richpig_sidebar2.php";
+        } else if ($_SESSION['user_id'] == "savebox3") {
+          include_once "richpig_sidebar3.php";
+        } else if ($_SESSION['user_id'] == "savebox4") {
+          include_once "richpig_sidebar4.php";
+        } else if ($_SESSION['user_id'] == "savebox5") {
+          include_once "richpig_sidebar5.php";
+        } else if ($_SESSION["user_id"] == ""){
+
+        
         include_once "richpig_sidebar.php";
+        }
 
     ?>
 
