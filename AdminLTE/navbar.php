@@ -12,5 +12,11 @@
     </li>
   </ul>
 
-
+    <ul class="navbar-nav ml-auto" style="user-select: auto;">
+        <li class="nav-item" style="user-select: auto;">
+            <a class="nav-link" href="password_change.php" role="button" >
+                <i class="fas fa-lock"></i>
+            </a>
+        </li>
+    </ul>
 </nav>
