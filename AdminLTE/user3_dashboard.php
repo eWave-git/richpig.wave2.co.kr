@@ -1,5 +1,5 @@
 <?php
-$sql = "select * from raw_data_12ch where address = '10' and board_number = 1 order by idx desc limit 1";
+$sql = "select * from upa.raw_data where address = '4002' and board_number = 3 order by idx desc limit 1";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
 
@@ -19,13 +19,13 @@ $row = mysqli_fetch_array($result);
 
                     <div class="info-box-content">
                         <span class="info-box-text">유입수 TDS 값</span>
-                        <span class="info-box-number"><?php echo $row['data1'];?> ppm</span>
+                        <span class="info-box-number"><?php echo $row['data2'];?> ppm</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row['data1']/100;?>%"></div>
+                            <div class="progress-bar" style="width: <?php echo $row['data2']/100;?>%"></div>
                         </div>
                         <span class="progress-description">
-                            조회 시점 : <?php echo substr($row['create_at'],11,8);?>
+                            조회 시점 : <?php echo substr($row['created_at'],11,8);?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -38,13 +38,13 @@ $row = mysqli_fetch_array($result);
 
                     <div class="info-box-content">
                         <span class="info-box-text">처리수 TDS 값 확인</span>
-                        <span class="info-box-number"><?php echo $row['data2'];?> ppm</span>
+                        <span class="info-box-number"><?php echo $row['data3'];?> ppm</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row['tds_out']/100;?>%"></div>
+                            <div class="progress-bar" style="width: <?php echo $row['data3']/100;?>%"></div>
                         </div>
                         <span class="progress-description">
-                            조회 시점 : <?php echo substr($row['create_at'],11,8);?>
+                            조회 시점 : <?php echo substr($row['created_at'],11,8);?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -58,13 +58,13 @@ $row = mysqli_fetch_array($result);
 
                     <div class="info-box-content">
                         <span class="info-box-text">전처리 압력 (IN)</span>
-                        <span class="info-box-number"><?php echo $row['data3'];?> bar</span>
+                        <span class="info-box-number"><?php echo $row['data4'];?> bar</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row['pressure_in'];?> %"></div>
+                            <div class="progress-bar" style="width: <?php echo $row['data4'];?> %"></div>
                         </div>
                         <span class="progress-description">
-                            조회 시점 : <?php echo substr($row['create_at'],11,8);?>
+                            조회 시점 : <?php echo substr($row['created_at'],11,8);?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -77,13 +77,13 @@ $row = mysqli_fetch_array($result);
 
                     <div class="info-box-content">
                         <span class="info-box-text">메인필터 압력 (OUT)</span>
-                        <span class="info-box-number"><?php echo $row['data4'];?> bar</span>
+                        <span class="info-box-number"><?php echo $row['data5'];?> bar</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: <?php echo $row['pressure_out'];?>%"></div>
+                            <div class="progress-bar" style="width: <?php echo $row['data5'];?>%"></div>
                         </div>
                         <span class="progress-description">
-                            조회 시점 : <?php echo substr($row['create_at'],11,8);?>
+                            조회 시점 : <?php echo substr($row['created_at'],11,8);?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -106,15 +106,7 @@ $row = mysqli_fetch_array($result);
                             <li class="nav-item">
                                 <a class="nav-link active" id="custom-tabs-two-home-tab" data-toggle="pill" href="#custom-tabs-two-home" role="tab" aria-controls="custom-tabs-two-home" aria-selected="true">두람농장</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="custom-tabs-two-profile-tab" data-toggle="pill" href="#custom-tabs-two-profile" role="tab" aria-controls="custom-tabs-two-profile" aria-selected="false">-</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="custom-tabs-two-messages-tab" data-toggle="pill" href="#custom-tabs-two-messages" role="tab" aria-controls="custom-tabs-two-messages" aria-selected="false">-</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="custom-tabs-two-settings-tab" data-toggle="pill" href="#custom-tabs-two-settings" role="tab" aria-controls="custom-tabs-two-settings" aria-selected="false">-</a>
-                            </li>
+
                         </ul>
                     </div>
                     <div class="card-body">

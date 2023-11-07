@@ -4,10 +4,10 @@ include_once "../connect.php";
 
 $query = "
     select
-	DATE_FORMAT(create_at, '%Y-%m-%d %H:00:00') as DATE,
+	DATE_FORMAT(created_at, '%Y-%m-%d %H:00:00') as DATE,
         round((sum(data5)-sum(data5-data6)),0) as throughput
-    FROM raw_data_12ch
-    where (create_at >= now() - INTERVAL 72 HOUR)
+    FROM upa.raw_data
+    where (created_at >= now() - INTERVAL 72 HOUR) and board_type=3
 	    group by DATE
 	    order by DATE asc;
 ";

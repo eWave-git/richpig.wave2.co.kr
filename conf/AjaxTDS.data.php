@@ -4,12 +4,12 @@ include_once "../connect.php";
 
 $query = "
     select
-        DATE_FORMAT(create_at, '%Y-%m-%d %H:%i:00') as DATE,
-        avg(data1) as tds_in,
-        avg(data2) as tds_out
-    from raw_data_12ch
-    where (create_at >= now() - INTERVAL 24 HOUR)
-    group by HOUR(create_at),FLOOR(MINUTE(create_at)/1)*10
+        DATE_FORMAT(created_at, '%Y-%m-%d %H:%i:00') as DATE,
+        avg(data2) as tds_in,
+        avg(data3) as tds_out
+    from upa.raw_data
+    where (created_at >= now() - INTERVAL 12 HOUR) and address = 4002 and board_number = 3
+    group by HOUR(created_at),FLOOR(MINUTE(created_at)/1)*10
     order by DATE asc ;
 ";
 

@@ -4,10 +4,10 @@ include_once "../connect.php";
 
 $query = "
     select
-        DATE_FORMAT(create_at, '%m-%d') as DATE,
-        round(sum(data7*380/1000),0) as power
-    FROM raw_data_12ch
-    where (create_at >= now() - INTERVAL 10 day)
+        DATE_FORMAT(created_at, '%m-%d') as DATE,
+        round(sum(data6*380/1000),0) as power
+    FROM upa.raw_data 
+    where (created_at >= now() - INTERVAL 4 day) and board_number = 3
     group by DATE
     order by DATE asc;
 ";

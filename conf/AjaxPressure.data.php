@@ -4,15 +4,14 @@ include_once "../connect.php";
 
 $query = "
     select
-        DATE_FORMAT(create_at, '%Y-%m-%d %H:%i:00') as DATE,
-        avg(data3) as pressure_in,
-        avg(data4) as pressure_out
-    from raw_data_12ch
-    where (create_at >= now() - INTERVAL 24 HOUR )
-    group by HOUR(create_at),FLOOR(MINUTE(create_at)/1)*10
+        DATE_FORMAT(created_at, '%Y-%m-%d %H:%i:00') as DATE,
+        avg(data4) as pressure_in,
+        avg(data5) as pressure_out
+    from upa.raw_data
+    where (created_at >= now() - INTERVAL 12 HOUR ) and address = 4002 and board_number = 3
+    group by HOUR(created_at),FLOOR(MINUTE(created_at)/1)*10
     order by DATE asc ;
 ";
-
 
 $result = mysqli_query($conn, $query);
 $rows = array();

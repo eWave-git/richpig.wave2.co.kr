@@ -3,9 +3,10 @@ session_start();
 include_once "../connect.php";
 
 $query = "
-    SELECT data8, data9, data10, data11
-    FROM raw_data_12ch
-    order by create_at desc limit 1,1;
+SELECT data2, data3, data4, data5
+    FROM upa.raw_data
+    where address = 4002 and board_number =4
+    order by created_at desc limit 1,1;
 ";
 $result = mysqli_query($conn, $query);
 $rows = array();
@@ -17,10 +18,10 @@ $watertank_arr = array();
 $create_at_arr = array();
 
 
-array_push($watertank_arr, array(0, floor($rows[0]['data8'])));
-array_push($watertank_arr, array(1, floor($rows[0]['data9'])));
-array_push($watertank_arr, array(2, floor($rows[0]['data10'])));
-array_push($watertank_arr, array(3, floor($rows[0]['data11'])));
+array_push($watertank_arr, array(0, floor($rows[0]['data2'])));
+array_push($watertank_arr, array(1, floor($rows[0]['data3'])));
+array_push($watertank_arr, array(2, floor($rows[0]['data4'])));
+array_push($watertank_arr, array(3, floor($rows[0]['data5'])));
 
 
 array_push($create_at_arr, array(0, 'level_origin'));
